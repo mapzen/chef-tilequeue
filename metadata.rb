@@ -9,17 +9,12 @@ version          '0.0.1'
 recipe 'tilequeue', 'Installs tilequeue'
 
 %w(
-  apache2
   apt
-  tilestache
   git
-  gunicorn
   python
   runit
-  supervisor
-  ulimit
+  tilestache
   user
-  yum
 ).each do |dep|
   depends dep
 end
