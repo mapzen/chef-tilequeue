@@ -15,6 +15,6 @@ end
 # use tilestache user/group
 directory node[:tilequeue][:cfg_path] do
   action :create
-  owner node[:tilestache][:user]
-  group node[:tilestache][:group]
+  owner node[:tilequeue][:tilestache][:user]
+  group node[:tilequeue][:tilestache][:group]
 end
