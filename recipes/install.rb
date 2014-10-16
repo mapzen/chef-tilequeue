@@ -12,8 +12,8 @@ template node[:tilequeue][:pip_requirements] do
   source "tilequeue-pip-requirements.txt.erb"
 end
 
-# install python packages from requirements
-python_pip "--allow-external PIL --allow-unverified PIL -r #{node[:tilequeue][:pip_requirements]}"
+# install python packages from requirements file
+python_pip "-r #{node[:tilequeue][:pip_requirements]}"
 
 # create config files needed for tilequeue
 tilequeue_config_file_template_mapping = {
