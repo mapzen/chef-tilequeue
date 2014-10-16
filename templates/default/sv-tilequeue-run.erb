@@ -1,0 +1,6 @@
+#!/bin/bash
+
+exec 2>&1
+exec chpst -u <%= node[:tilestache][:user] %> \
+    tilequeue process \
+    --config <%= "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" %>

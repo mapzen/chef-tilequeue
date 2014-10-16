@@ -1,0 +1,25 @@
+aws:
+  sqs:
+    name: <%= node[:tilequeue][:aws][:sqs][:name] %>
+    timeout-seconds: 20
+  s3:
+    bucket: <%= node[:tilequeue][:aws][:s3][:bucket] %>
+    path: <%= node[:tilequeue][:aws][:s3][:path] %>
+    reduced-redundancy: True
+  credentials:
+    aws_access_key_id: <%= node[:tilequeue][:aws][:credentials][:aws_access_key_id] %>
+    aws_secret_access_key: <%= node[:tilequeue][:aws][:credentials][:aws_secret_access_key] %>
+tiles:
+  metro-extract:
+    url: https://raw.githubusercontent.com/mapzen/metroextractor-cities/master/cities.json
+    zoom-filter: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_filter] %>
+  unique: true
+  zoom-start: <%= node[:tilequeue][:tiles][:zoom_start] %>
+  zoom-until: <%= node[:tilequeue][:tiles][:zoom_until] %>
+  daemon: true
+  expired: <%= node[:tilequeue][:tiles][:expired] %>
+tilestache:
+  config: <%= node[:tilequeue][:tilestache][:config] %>
+  formats: <%= node[:tilequeue][:tilestache][:formats] %>
+logging:
+  config: <%= node[:tilequeue][:logging][:config] %>
