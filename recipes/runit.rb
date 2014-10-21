@@ -2,11 +2,10 @@
 # Cookbook Name:: tilequeue
 # Recipe:: runit
 #
-# Copyright 2014, Mapzen
 
 # supervise the tilequeue process with runit
 
-include_recipe 'runit'
+include_recipe 'runit::default'
 
 runit_service 'tilequeue' do
   action          [:enable, :start]
