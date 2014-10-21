@@ -23,6 +23,6 @@ default[:tilequeue][:tiles][:zoom_start]                        = 0
 default[:tilequeue][:tiles][:zoom_until]                        = 15
 default[:tilequeue][:tiles][:expired]                           = ''
 default[:tilequeue][:tilestache][:config]                       = "#{default[:tilequeue][:tilestache][:cfg_path]}/#{default[:tilequeue][:tilestache][:cfg_file]}"
-default[:tilequeue][:tilestache][:formats]                      = ['json', 'vtm']
+default[:tilequeue][:tilestache][:formats]                      = %w(json vtm)
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 default[:tilequeue][:pip_requirements]                          = "#{Chef::Config[:file_cache_path]}/pip-requirements.txt"
