@@ -50,7 +50,6 @@ GEM
       ohai (~> 7.2)
       pry (~> 0.9)
       rest-client (>= 1.0.4, <= 1.6.7)
-    chef-rewind (0.0.8)
     chef-zero (2.2)
       hashie (~> 2.0)
       json
@@ -204,7 +203,6 @@ PLATFORMS
 
 DEPENDENCIES
   berkshelf (= 3.1.4)
-  chef-rewind (= 0.0.8)
   chefspec (= 4.0.1)
   foodcritic (= 4.0.0)
   rainbow (= 2.0.0)
