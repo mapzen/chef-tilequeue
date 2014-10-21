@@ -2,13 +2,10 @@
 # Cookbook Name:: tilequeue
 # Recipe:: groundwork
 #
-# Copyright 2014, Mapzen
 
 # dev packages required by python packages
 %w(python-dev libgeos-dev libpq-dev).each do |p|
-  package p do
-    action :install
-  end
+  package p
 end
 
 # all tilequeue config files will end up here

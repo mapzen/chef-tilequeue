@@ -2,11 +2,10 @@
 # Cookbook Name:: tilequeue
 # Recipe:: default
 #
-# Copyright 2014, Mapzen
 
 %w(
-  apt
-  git
+  apt::default
+  git::default
   python::package
   tilestache::default
   tilequeue::groundwork

@@ -2,7 +2,6 @@
 # Cookbook Name:: tilequeue
 # Recipe:: runit
 #
-# Copyright 2014, Mapzen
 
 # supervise the tilequeue process with runit
 

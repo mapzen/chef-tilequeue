@@ -2,7 +2,6 @@
 # Cookbook Name:: tilequeue
 # Recipe:: install
 #
-# Copyright 2014, Mapzen
 
 # generate a pip requirements file for consistent python package
 # versions
