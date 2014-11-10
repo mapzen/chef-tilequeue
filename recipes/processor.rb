@@ -1,9 +1,11 @@
 #
 # Cookbook Name:: tilequeue
-# Recipe:: runit
+# Recipe:: processor
 #
 
 # supervise the tilequeue process with runit
+
+include_recipe 'tilequeue'
 
 include_recipe 'runit::default'
 

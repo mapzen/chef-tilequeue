@@ -1,0 +1,31 @@
+#!/bin/bash
+
+TILEQUEUE=<%= node[:tilequeue][:bin_path] %>
+TILEQUEUE_CFG=<%= "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" %>
+
+EXPIRED_TILES=<%= node[:tilequeue][:tiles][:expired] %>
+EXPIRED_INTERSECTED_TILES=<%= node[:tilequeue][:tilediff][:intersect][:expired] %>
+
+REDIS_HOST=<%= node[:tilequeue][:tilediff][:redis][:host] %>
+REDIS_PORT=<%= node[:tilequeue][:tilediff][:redis][:port] %>
+REDIS_DB=<%= node[:tilequeue][:tilediff][:redis][:db] %>
+REDIS_OPTIONS="-h $REDIS_HOST -p $REDIS_PORT -n $REDIS_DB"
+
+TODAY=$(date +%Y%m%d)
+REDIS_CACHE_SET_KEY=<%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
+REDIS_DIFF_SET_KEY="diffs:${TODAY}-$$"
+
+$TILEQUEUE cache-index-diffs-load \
+    --config $TILEQUEUE_CFG \
+    --redis-diff-set-key $REDIS_DIFF_SET_KEY \
+    | redis-cli $REDIS_OPTIONS --pipe 2>&1 >/dev/null
+
+$TILEQUEUE cache-index-diffs-intersect \
+    --config $TILEQUEUE_CFG \
+    --redis-diff-set-key $REDIS_DIFF_SET_KEY > $EXPIRED_INTERSECTED_TILES
+
+echo "del $REDIS_DIFF_SET_KEY" | redis-cli $REDIS_OPTIONS 2>&1 >/dev/null
+
+$TILEQUEUE write \
+    --config $TILEQUEUE_CFG \
+    --expired-tiles-file $EXPIRED_INTERSECTED_TILES

@@ -1,13 +1,13 @@
-argparse==1.2.1
-boto==2.33.0
-git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
-ModestMaps==1.4.6
-Pillow==2.6.1
-protobuf==2.6.0
-psycopg2==2.5.4
-PyYAML==3.11
-Shapely==1.4.3
-simplejson==3.6.4
-tilequeue==0.0.1dev
-Werkzeug==0.9.6
-wsgiref==0.1.2
+<%= node[:tilequeue][:pip_requirements][:argparse] %>
+<%= node[:tilequeue][:pip_requirements][:boto] %>
+<%= node[:tilequeue][:pip_requirements][:modestmaps] %>
+<%= node[:tilequeue][:pip_requirements][:pillow] %>
+<%= node[:tilequeue][:pip_requirements][:protobuf] %>
+<%= node[:tilequeue][:pip_requirements][:psycopg2] %>
+<%= node[:tilequeue][:pip_requirements][:pyyaml] %>
+<%= node[:tilequeue][:pip_requirements][:shapely] %>
+<%= node[:tilequeue][:pip_requirements][:simplejson] %>
+<%= node[:tilequeue][:pip_requirements][:tilequeue] %>
+<%= node[:tilequeue][:pip_requirements][:tilestache] %>
+<%= node[:tilequeue][:pip_requirements][:werkzeug] %>
+<%= node[:tilequeue][:pip_requirements][:wsgiref] %>

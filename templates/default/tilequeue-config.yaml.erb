@@ -23,3 +23,9 @@ tilestache:
   formats: <%= node[:tilequeue][:tilestache][:formats] %>
 logging:
   config: <%= node[:tilequeue][:logging][:config] %>
+redis:
+  host: <%= node[:tilequeue][:tilediff][:redis][:host] %>
+  port: <%= node[:tilequeue][:tilediff][:redis][:port] %>
+  db: <%= node[:tilequeue][:tilediff][:redis][:db] %>
+  cache-set-key: <%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
+  diff-set-key: tilestache.diffs
