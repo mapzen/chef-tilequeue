@@ -65,6 +65,7 @@ default[:tilequeue][:tilediff][:redis][:cache_set_key]          = 'tilestache.ca
 default[:tilequeue][:tilediff][:intersect][:expired]            = '/tmp/expired-intersected.list'
 default[:tilequeue][:tilediff][:intersect][:script][:path]      = '/usr/local/bin/tilequeue-tilediff.sh'
 default[:tilequeue][:tilediff][:intersect][:script][:output]    = '/tmp/tilequeue-tilediff-output.log'
+default[:tilequeue][:tilediff][:lock][:pid]                     = '/tmp/tilequeue-tilediff.pid'
 
 default[:tilequeue][:tilediff][:cron][:enabled]                 = true
 default[:tilequeue][:tilediff][:cron][:minute]                  = '0'

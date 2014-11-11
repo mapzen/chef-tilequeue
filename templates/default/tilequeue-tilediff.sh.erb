@@ -15,6 +15,30 @@ TODAY=$(date +%Y%m%d)
 REDIS_CACHE_SET_KEY=<%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
 REDIS_DIFF_SET_KEY="diffs:${TODAY}-$$"
 
+PIDFILE=<%= node[:tilequeue][:tilediff][:lock][:pid] %>
+
+getlock()
+{
+  if [ -s $1 ]; then
+    if [ "$(ps -p `cat $1` | wc -l)" -gt 1 ]; then
+      return 1 #false
+    fi
+  fi
+
+  echo $$ >"$1"
+  return 0 #true
+}
+
+freelock()
+{
+  rm "$1"
+}
+
+if ! getlock "$PIDFILE"; then
+  echo "pid `cat $PIDFILE` still running"
+  exit 3
+fi
+
 $TILEQUEUE cache-index-diffs-load \
     --config $TILEQUEUE_CFG \
     --redis-diff-set-key $REDIS_DIFF_SET_KEY \
@@ -29,3 +53,5 @@ echo "del $REDIS_DIFF_SET_KEY" | redis-cli $REDIS_OPTIONS 2>&1 >/dev/null
 $TILEQUEUE write \
     --config $TILEQUEUE_CFG \
     --expired-tiles-file $EXPIRED_INTERSECTED_TILES
+
+freelock "$PIDFILE"
