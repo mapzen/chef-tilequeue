@@ -10,4 +10,4 @@ template node[:tilequeue][:pip_requirements_location] do
 end
 
 # install python packages from requirements file
-python_pip "-r #{node[:tilequeue][:pip_requirements_location]}"
+python_pip "-U -r #{node[:tilequeue][:pip_requirements_location]}"
