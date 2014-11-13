@@ -5,8 +5,8 @@
 
 # generate a pip requirements file for consistent python package
 # versions
-template node[:tilequeue][:pip_requirements_location] do
-  source 'tilequeue-pip-requirements.txt.erb'
+file node[:tilequeue][:pip_requirements_location] do
+  content node[:tilequeue][:pip_requirements].join("\n")
 end
 
 # install python packages from requirements file
