@@ -66,3 +66,6 @@ default[:tilequeue][:tilediff][:cron][:minute]                  = '0'
 default[:tilequeue][:tilediff][:cron][:hour]                    = '*'
 default[:tilequeue][:tilediff][:cron][:day]                     = '*'
 default[:tilequeue][:tilediff][:cron][:user]                    = default[:tilequeue][:user][:user]
+
+default[:tilequeue][:seed][:log_dir]                            = '/var/log/tilequeue'
+default[:tilequeue][:seed][:log]                                = '/var/log/tilequeue/seed.log'

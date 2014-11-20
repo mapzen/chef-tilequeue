@@ -28,6 +28,12 @@ directory node[:tilequeue][:cfg_path] do
   recursive true
 end
 
+# log file
+directory node[:tilequeue][:seed][:log_dir] do
+  action :create
+  recursive true
+end
+
 # create config files needed for tilequeue
 tilequeue_config_file_template_mapping = {
   'config.yaml' => 'tilequeue-config.yaml.erb',
