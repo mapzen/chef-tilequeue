@@ -6,7 +6,7 @@
 %w(
   apt::default
   git::default
-  python::package
+  python::default
   tilequeue::install
 ).each do |r|
   include_recipe r
