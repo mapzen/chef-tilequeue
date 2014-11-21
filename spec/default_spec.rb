@@ -3,16 +3,14 @@ require 'spec_helper'
 describe 'tilequeue::default' do
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
-      node.set[:tilequeue][:pip_requirements] = '/tmp/requirements.txt'
+      node.set[:tilequeue][:pip_requirements] = %w(requirement-one requirement-two)
     end.converge(described_recipe)
   end
 
   %w(
     apt::default
     git::default
-    python::default
-    tilestache::default
-    tilequeue::groundwork
+    python::package
     tilequeue::install
   ).each do |r|
     it "should include the recipe #{r}" do
