@@ -3,18 +3,23 @@ require 'spec_helper'
 describe 'tilequeue::install' do
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
-      node.set[:tilequeue][:pip_requirements] = '/tmp/requirements.txt'
+      node.set[:tilequeue][:pip_requirements] = %w(requirement-one requirement-two)
     end.converge(described_recipe)
   end
 
-  it 'should create template /etc/requirements.txt' do
-    expect(chef_run).to create_template('/tmp/requirements.txt').with(
-      source: 'tilequeue-pip-requirements.txt.erb'
+  it 'should create template /etc/tilequeue/config.yaml' do
+    expect(chef_run).to create_template('/etc/tilequeue/config.yaml').with(
+      source: 'tilequeue-config.yaml.erb'
+    )
+  end
+  it 'should create template /etc/tilequeue/logging.conf' do
+    expect(chef_run).to create_template('/etc/tilequeue/logging.conf').with(
+      source: 'tilequeue-logging.conf.erb'
     )
   end
 
   it 'should python_pip install the requirements file' do
-    expect(chef_run).to install_python_pip '-r /tmp/requirements.txt'
+    expect(chef_run).to install_python_pip '-U -r /Users/grant/.chef/cache/tilequeue-pip-requirements.txt'
   end
 
   %w(config.yaml logging.conf).each do |f|
