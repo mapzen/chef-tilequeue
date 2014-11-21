@@ -19,7 +19,7 @@ describe 'tilequeue::install' do
   end
 
   it 'should python_pip install the requirements file' do
-    expect(chef_run).to install_python_pip '-U -r /Users/grant/.chef/cache/tilequeue-pip-requirements.txt'
+    expect(chef_run).to install_python_pip '-U -r /home/ubuntu/.chef/cache/tilequeue-pip-requirements.txt'
   end
 
   %w(config.yaml logging.conf).each do |f|
