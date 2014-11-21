@@ -10,7 +10,7 @@ describe 'tilequeue::default' do
   %w(
     apt::default
     git::default
-    python::package
+    python::default
     tilestache::default
     tilequeue::groundwork
     tilequeue::install
