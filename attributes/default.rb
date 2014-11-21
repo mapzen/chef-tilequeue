@@ -25,7 +25,7 @@ default[:tilequeue][:pip_requirements] = %w(
   wsgiref==0.1.2
 )
 
-# default[:tilequeue][:install_method]                            = 'source'
+#default[:tilequeue][:install_method]                            = 'source'
 default[:tilequeue][:source][:install_dir]                      = '/opt/tilequeue'
 default[:tilequeue][:source][:repo]                             = 'https://github.com/mapzen/tilequeue.git'
 default[:tilequeue][:source][:version]                          = 'master'
