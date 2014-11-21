@@ -13,7 +13,6 @@ recipe 'tilequeue', 'Installs tilequeue'
   git
   python
   runit
-  tilestache
   user
 ).each do |dep|
   depends dep

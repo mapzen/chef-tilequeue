@@ -10,33 +10,25 @@ default[:tilequeue][:bin_path]                                  = '/usr/local/bi
 default[:tilequeue][:install_method]                            = 'pip_requirements'
 default[:tilequeue][:pip_requirements_location]                 = "#{Chef::Config[:file_cache_path]}/tilequeue-pip-requirements.txt"
 default[:tilequeue][:pip_requirements] = %w(
-    argparse==1.2.1
-    boto==2.33.0
-    ModestMaps==1.4.6
-    Pillow==2.6.1
-    protobuf==2.6.0
-    psycopg2==2.5.4
-    PyYAML==3.11
-    Shapely==1.4.3
-    simplejson==3.6.4
-    git+https://github.com/mapzen/tilequeue#egg=tilequeue
-    git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
-    Werkzeug==0.9.6
-    wsgiref==0.1.2
+  argparse==1.2.1
+  boto==2.33.0
+  ModestMaps==1.4.6
+  Pillow==2.6.1
+  protobuf==2.6.0
+  psycopg2==2.5.4
+  PyYAML==3.11
+  Shapely==1.4.3
+  simplejson==3.6.4
+  git+https://github.com/mapzen/tilequeue#egg=tilequeue
+  git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
+  Werkzeug==0.9.6
+  wsgiref==0.1.2
 )
 
 #default[:tilequeue][:install_method]                            = 'source'
 default[:tilequeue][:source][:install_dir]                      = '/opt/tilequeue'
 default[:tilequeue][:source][:repo]                             = 'https://github.com/mapzen/tilequeue.git'
 default[:tilequeue][:source][:version]                          = 'master'
-
-# common configuration with tilestache
-default[:tilequeue][:tilestache][:user]                         = node[:tilestache][:user]      || 'tilestache'
-default[:tilequeue][:tilestache][:group]                        = node[:tilestache][:group]     || 'tilestache'
-default[:tilequeue][:tilestache][:cfg_path]                     = node[:tilestache][:cfg_path]  || '/etc/tilestache'
-default[:tilequeue][:tilestache][:cfg_file]                     = node[:tilestache][:cfg_file]  || 'tilestache.conf'
-
-default[:tilestache][:install_method]                           = 'pip_requirements'
 
 # tilequeue user to create
 default[:tilequeue][:user][:user]                               = 'tilequeue'
