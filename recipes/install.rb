@@ -12,13 +12,20 @@ user_account node[:tilequeue][:user][:user] do
 end
 
 # dev packages required by python packages
-%w(python-dev libgeos-dev libpq-dev).each do |p|
+%w(
+  python-dev
+  libgeos-dev
+  libpq-dev
+  python-pip
+  python-pil
+).each do |p|
   package p
 end
 
 # all tilequeue config files will end up here
 directory node[:tilequeue][:cfg_path] do
   action :create
+  recursive true
 end
 
 # create config files needed for tilequeue
