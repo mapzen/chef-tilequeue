@@ -3,9 +3,6 @@
 # Recipe:: install
 #
 
-# install tilestache first
-include_recipe 'tilestache'
-
 # tilequeue user
 user_account node[:tilequeue][:user][:user] do
   manage_home true
@@ -20,7 +17,6 @@ end
 end
 
 # all tilequeue config files will end up here
-# use tilestache user/group
 directory node[:tilequeue][:cfg_path] do
   action :create
 end
