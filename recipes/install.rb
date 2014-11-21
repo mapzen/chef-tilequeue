@@ -8,7 +8,6 @@ user_account node[:tilequeue][:user][:user] do
   manage_home true
   create_group true
   home "/home/#{node[:tilequeue][:user][:user]}"
-  only_if { node[:tilequeue][:user][:create] == true }
 end
 
 # dev packages required by python packages

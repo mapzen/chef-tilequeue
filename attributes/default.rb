@@ -32,7 +32,6 @@ default[:tilequeue][:source][:version]                          = 'master'
 
 # tilequeue user to create
 default[:tilequeue][:user][:user]                               = 'tilequeue'
-default[:tilequeue][:user][:create]                             = true
 
 # for yaml configuration file
 default[:tilequeue][:aws][:sqs][:name]                          = ''
