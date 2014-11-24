@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'tilequeue::default' do
+  before do
+    stub_command("/usr/bin/python -c 'import setuptools'").and_return(true)
+  end
+
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
       node.set[:tilequeue][:pip_requirements] = %w(requirement-one requirement-two)
