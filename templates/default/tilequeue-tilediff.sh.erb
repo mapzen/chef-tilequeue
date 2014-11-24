@@ -41,6 +41,10 @@ fi
 
 for EXPIRED_TILES_FILE in ${EXPIRED_TILES_PREFIX}*
 do
+
+  # sanity check for case when glob matched no files
+  if [ ! -r $EXPIRED_TILES_FILE ]; then continue; fi
+
   $TILEQUEUE cache-index-diffs-load \
       --expired-tiles-file $EXPIRED_TILES_FILE
       --config $TILEQUEUE_CFG \
