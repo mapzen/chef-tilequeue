@@ -14,7 +14,7 @@ describe 'tilequeue::default' do
   %w(
     apt::default
     git::default
-    python::package
+    python::default
     tilequeue::install
   ).each do |r|
     it "should include the recipe #{r}" do
