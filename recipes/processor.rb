@@ -14,4 +14,5 @@ runit_service 'tilequeue' do
   log             true
   default_logger  true
   sv_timeout      30
+  subscribes      :restart, "python_pip[-U -r #{node[:tilequeue][:pip_requirements_location]}]", :delayed
 end
