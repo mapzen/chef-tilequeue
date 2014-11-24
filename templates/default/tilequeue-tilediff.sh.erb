@@ -3,7 +3,7 @@
 TILEQUEUE=<%= node[:tilequeue][:bin_path] %>
 TILEQUEUE_CFG=<%= "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" %>
 
-EXPIRED_TILES=<%= node[:tilequeue][:tiles][:expired] %>
+EXPIRED_TILES_PREFIX=<%= node[:tilequeue][:tiles][:expired] %>
 EXPIRED_INTERSECTED_TILES=<%= node[:tilequeue][:tilediff][:intersect][:expired] %>
 
 REDIS_HOST=<%= node[:tilequeue][:tilediff][:redis][:host] %>
@@ -39,19 +39,25 @@ if ! getlock "$PIDFILE"; then
   exit 3
 fi
 
-$TILEQUEUE cache-index-diffs-load \
-    --config $TILEQUEUE_CFG \
-    --redis-diff-set-key $REDIS_DIFF_SET_KEY \
-    | redis-cli $REDIS_OPTIONS --pipe 2>&1 >/dev/null
+for EXPIRED_TILES_FILE in ${EXPIRED_TILES_PREFIX}*
+do
+  $TILEQUEUE cache-index-diffs-load \
+      --expired-tiles-file $EXPIRED_TILES_FILE
+      --config $TILEQUEUE_CFG \
+      --redis-diff-set-key $REDIS_DIFF_SET_KEY \
+      | redis-cli $REDIS_OPTIONS --pipe 2>&1 >/dev/null
 
-$TILEQUEUE cache-index-diffs-intersect \
-    --config $TILEQUEUE_CFG \
-    --redis-diff-set-key $REDIS_DIFF_SET_KEY > $EXPIRED_INTERSECTED_TILES
+  $TILEQUEUE cache-index-diffs-intersect \
+      --config $TILEQUEUE_CFG \
+      --redis-diff-set-key $REDIS_DIFF_SET_KEY > $EXPIRED_INTERSECTED_TILES
 
-echo "del $REDIS_DIFF_SET_KEY" | redis-cli $REDIS_OPTIONS 2>&1 >/dev/null
+  echo "del $REDIS_DIFF_SET_KEY" | redis-cli $REDIS_OPTIONS 2>&1 >/dev/null
 
-$TILEQUEUE write \
-    --config $TILEQUEUE_CFG \
-    --expired-tiles-file $EXPIRED_INTERSECTED_TILES
+  $TILEQUEUE write \
+      --config $TILEQUEUE_CFG \
+      --expired-tiles-file $EXPIRED_INTERSECTED_TILES
+
+  rm $EXPIRED_TILES_FILE
+done
 
 freelock "$PIDFILE"

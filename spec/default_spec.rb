@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'tilequeue::default' do
+  before do
+    stub_command("/usr/bin/python -c 'import setuptools'").and_return(true)
+  end
+
   let(:chef_run) do
     ChefSpec::Runner.new do |node|
       node.set[:tilequeue][:pip_requirements] = %w(requirement-one requirement-two)
@@ -10,7 +14,7 @@ describe 'tilequeue::default' do
   %w(
     apt::default
     git::default
-    python::package
+    python::default
     tilequeue::install
   ).each do |r|
     it "should include the recipe #{r}" do
