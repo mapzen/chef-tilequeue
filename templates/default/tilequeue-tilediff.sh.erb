@@ -46,7 +46,7 @@ do
   if [ ! -r $EXPIRED_TILES_FILE ]; then continue; fi
 
   $TILEQUEUE cache-index-diffs-load \
-      --expired-tiles-file $EXPIRED_TILES_FILE
+      --expired-tiles-file $EXPIRED_TILES_FILE \
       --config $TILEQUEUE_CFG \
       --redis-diff-set-key $REDIS_DIFF_SET_KEY \
       | redis-cli $REDIS_OPTIONS --pipe 2>&1 >/dev/null
