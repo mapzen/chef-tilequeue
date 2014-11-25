@@ -47,8 +47,12 @@ default[:tilequeue][:tiles][:zoom_start]                        = 0
 default[:tilequeue][:tiles][:zoom_until]                        = 15
 default[:tilequeue][:tiles][:expired]                           = '/tmp/expired.list'
 
+default[:tilequeue][:workers]                                   = 4
+default[:tilequeue][:messages_at_once]                          = 2
+
 default[:tilequeue][:tilestache][:config]                       = '/etc/tilestache/tilestache.conf'
 default[:tilequeue][:tilestache][:formats]                      = %w(json)
+
 
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 

@@ -18,6 +18,8 @@ tiles:
   zoom-until: <%= node[:tilequeue][:tiles][:zoom_until] %>
   daemon: true
   expired: <%= node[:tilequeue][:tiles][:expired] %>
+workers: <%= node[:tilequeue][:workers] %>
+messages_at_once: <%= node[:tilequeue][:messages_at_once] %>
 tilestache:
   config: <%= node[:tilequeue][:tilestache][:config] %>
   formats: <%= node[:tilequeue][:tilestache][:formats] %>
