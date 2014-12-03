@@ -12,7 +12,7 @@ default[:tilequeue][:pip_requirements_location]                 = "#{Chef::Confi
 default[:tilequeue][:pip_requirements] = %w(
   argparse==1.2.1
   boto==2.33.0
-  mapbox-vector-tile==0.0.1
+  mapbox-vector-tile==0.0.2
   ModestMaps==1.4.6
   Pillow==2.6.1
   protobuf==2.6.0
