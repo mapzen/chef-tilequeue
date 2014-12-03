@@ -45,23 +45,9 @@ do
   # sanity check for case when glob matched no files
   if [ ! -r $EXPIRED_TILES_FILE ]; then continue; fi
 
-  $TILEQUEUE cache-index-diffs-load \
+  $TILEQUEUE intersect \
       --expired-tiles-file $EXPIRED_TILES_FILE \
-      --config $TILEQUEUE_CFG \
-      --redis-diff-set-key $REDIS_DIFF_SET_KEY \
-      | redis-cli $REDIS_OPTIONS --pipe 2>&1 >/dev/null
-
-  $TILEQUEUE cache-index-diffs-intersect \
-      --config $TILEQUEUE_CFG \
-      --redis-diff-set-key $REDIS_DIFF_SET_KEY > $EXPIRED_INTERSECTED_TILES
-
-  echo "del $REDIS_DIFF_SET_KEY" | redis-cli $REDIS_OPTIONS 2>&1 >/dev/null
-
-  $TILEQUEUE write \
-      --config $TILEQUEUE_CFG \
-      --expired-tiles-file $EXPIRED_INTERSECTED_TILES
-
-  rm $EXPIRED_TILES_FILE
+      --config $TILEQUEUE_CFG
 done
 
 freelock "$PIDFILE"
