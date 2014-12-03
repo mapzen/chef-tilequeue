@@ -54,7 +54,6 @@ default[:tilequeue][:messages_at_once]                          = 2
 default[:tilequeue][:tilestache][:config]                       = '/etc/tilestache/tilestache.conf'
 default[:tilequeue][:tilestache][:formats]                      = %w(json)
 
-
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 
 default[:tilequeue][:tilediff][:redis][:host]                   = 'localhost'
