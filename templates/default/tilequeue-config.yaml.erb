@@ -31,3 +31,9 @@ redis:
   db: <%= node[:tilequeue][:tilediff][:redis][:db] %>
   cache-set-key: <%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
   diff-set-key: tilestache.diffs
+postgresql:
+  host: <%= node[:tilequeue][:postgresql][:host] %>
+  port: 5432
+  database: <%= node[:tilequeue][:postgresql][:database] %>
+  user: <%= node[:tilequeue][:postgresql][:user] %>
+  password: <%= node[:tilequeue][:postgresql][:password] %>
