@@ -25,6 +25,7 @@ default[:tilequeue][:pip_requirements] = %w(
   simplejson==3.6.4
   git+https://github.com/mapzen/tileglue#egg=tileglue
   git+https://github.com/mapzen/tilequeue#egg=tilequeue
+  git+https://github.com/mapzen/tilestache-providers#egg=tilestache-providers
   git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
   Werkzeug==0.9.6
   wsgiref==0.1.2
