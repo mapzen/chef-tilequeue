@@ -78,7 +78,10 @@ default[:tilequeue][:tilediff][:cron][:user]                    = default[:tileq
 default[:tilequeue][:seed][:log_dir]                            = '/var/log/tilequeue'
 default[:tilequeue][:seed][:log]                                = '/var/log/tilequeue/seed.log'
 
+# single postgresql host
 default[:tilequeue][:postgresql][:host]                         = 'localhost'
+# if connecting to multiple postgresql hosts
+default[:tilequeue][:postgresql][:hosts]                        = nil
 default[:tilequeue][:postgresql][:database]                     = 'osm'
 default[:tilequeue][:postgresql][:user]                         = 'osm'
 default[:tilequeue][:postgresql][:password]                     = nil
