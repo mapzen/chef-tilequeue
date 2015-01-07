@@ -22,6 +22,7 @@ tiles:
   zoom-until: <%= node[:tilequeue][:tiles][:zoom_until] %>
   daemon: true
   expired: <%= node[:tilequeue][:tiles][:expired] %>
+  expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
 workers: <%= node[:tilequeue][:workers] %>
 messages_at_once: <%= node[:tilequeue][:messages_at_once] %>
 tilestache:

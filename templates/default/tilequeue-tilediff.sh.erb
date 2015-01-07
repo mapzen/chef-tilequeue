@@ -3,18 +3,6 @@
 TILEQUEUE=<%= node[:tilequeue][:bin_path] %>
 TILEQUEUE_CFG=<%= "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" %>
 
-EXPIRED_TILES_PREFIX=<%= node[:tilequeue][:tiles][:expired] %>
-EXPIRED_INTERSECTED_TILES=<%= node[:tilequeue][:tilediff][:intersect][:expired] %>
-
-REDIS_HOST=<%= node[:tilequeue][:tilediff][:redis][:host] %>
-REDIS_PORT=<%= node[:tilequeue][:tilediff][:redis][:port] %>
-REDIS_DB=<%= node[:tilequeue][:tilediff][:redis][:db] %>
-REDIS_OPTIONS="-h $REDIS_HOST -p $REDIS_PORT -n $REDIS_DB"
-
-TODAY=$(date +%Y%m%d)
-REDIS_CACHE_SET_KEY=<%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
-REDIS_DIFF_SET_KEY="diffs:${TODAY}-$$"
-
 PIDFILE=<%= node[:tilequeue][:tilediff][:lock][:pid] %>
 
 getlock()
@@ -39,15 +27,6 @@ if ! getlock "$PIDFILE"; then
   exit 3
 fi
 
-for EXPIRED_TILES_FILE in ${EXPIRED_TILES_PREFIX}*
-do
-
-  # sanity check for case when glob matched no files
-  if [ ! -r $EXPIRED_TILES_FILE ]; then continue; fi
-
-  $TILEQUEUE intersect \
-      --expired-tiles-file $EXPIRED_TILES_FILE \
-      --config $TILEQUEUE_CFG
-done
+$TILEQUEUE intersect --config $TILEQUEUE_CFG
 
 freelock "$PIDFILE"
