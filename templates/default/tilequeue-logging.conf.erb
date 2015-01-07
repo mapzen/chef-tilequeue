@@ -1,11 +1,11 @@
 [loggers]
-keys=root,process,seed,write,read,generate_tile
+keys=root,process,seed,write,read,intersect,generate_tile,drain
 
 [handlers]
-keys=consoleHandler
+keys=consoleHandler,consoleTimestampHandler
 
 [formatters]
-keys=simpleFormatter
+keys=simpleFormatter,timestampFormatter
 
 [logger_root]
 level=WARNING
@@ -35,10 +35,22 @@ handlers=consoleHandler
 qualName=read
 propagate=0
 
+[logger_intersect]
+level=INFO
+handlers=consoleTimestampHandler
+qualName=intersect
+propagate=0
+
 [logger_generate_tile]
 level=INFO
 handlers=consoleHandler
 qualName=generate_tile
+propagate=0
+
+[logger_drain]
+level=INFO
+handlers=consoleHandler
+qualName=drain
 propagate=0
 
 [handler_consoleHandler]
@@ -46,6 +58,15 @@ class=StreamHandler
 formatter=simpleFormatter
 args=(sys.stdout,)
 
+[handler_consoleTimestampHandler]
+class=StreamHandler
+formatter=timestampFormatter
+args=(sys.stdout,)
+
 [formatter_simpleFormatter]
 format=%(name)s - %(levelname)s - %(message)s
+datefmt=
+
+[formatter_timestampFormatter]
+format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 datefmt=
