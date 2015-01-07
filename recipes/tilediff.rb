@@ -17,6 +17,6 @@ cron 'tilequeue diff' do
   hour    node[:tilequeue][:tilediff][:cron][:hour]
   day     node[:tilequeue][:tilediff][:cron][:day]
   user    node[:tilequeue][:tilediff][:cron][:user]
-  command "#{node[:tilequeue][:tilediff][:intersect][:script][:path]} >#{node[:tilequeue][:tilediff][:intersect][:script][:output]} 2>&1"
+  command "#{node[:tilequeue][:tilediff][:intersect][:script][:path]} >>#{node[:tilequeue][:tilediff][:intersect][:script][:output]} 2>&1"
   only_if { node[:tilequeue][:tilediff][:cron][:enabled] == true }
 end
