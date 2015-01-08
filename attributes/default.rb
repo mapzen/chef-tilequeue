@@ -50,6 +50,7 @@ default[:tilequeue][:tiles][:zoom_until]                        = 15
 default[:tilequeue][:tiles][:top_tiles][:zoom_start]            = 11
 default[:tilequeue][:tiles][:top_tiles][:zoom_until]            = 20
 default[:tilequeue][:tiles][:expired]                           = '/tmp/expired.list'
+default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-tiles'
 
 default[:tilequeue][:workers]                                   = 4
 default[:tilequeue][:messages_at_once]                          = 2
@@ -64,9 +65,8 @@ default[:tilequeue][:tilediff][:redis][:port]                   = 6379
 default[:tilequeue][:tilediff][:redis][:db]                     = 0
 default[:tilequeue][:tilediff][:redis][:cache_set_key]          = 'tilestache.cache'
 
-default[:tilequeue][:tilediff][:intersect][:expired]            = '/tmp/expired-intersected.list'
-default[:tilequeue][:tilediff][:intersect][:script][:path]      = '/usr/local/bin/tilequeue-tilediff.sh'
-default[:tilequeue][:tilediff][:intersect][:script][:output]    = '/tmp/tilequeue-tilediff-output.log'
+default[:tilequeue][:tilediff][:script][:path]                  = '/usr/local/bin/tilequeue-tilediff.sh'
+default[:tilequeue][:tilediff][:script][:output]                = '/tmp/tilequeue-tilediff.log'
 default[:tilequeue][:tilediff][:lock][:pid]                     = '/tmp/tilequeue-tilediff.pid'
 
 default[:tilequeue][:tilediff][:cron][:enabled]                 = true
