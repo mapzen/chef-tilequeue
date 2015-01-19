@@ -23,7 +23,7 @@ default[:tilequeue][:pip_requirements] = %w(
   PyYAML==3.11
   Shapely==1.4.3
   simplejson==3.6.4
-  git+https://github.com/mapzen/tilequeue#egg=tilequeue
+  git+https://github.com/mapzen/tilequeue@faster-queries#egg=tilequeue
   git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
   Werkzeug==0.9.6
   wsgiref==0.1.2
