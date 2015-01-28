@@ -3,13 +3,6 @@
 # Recipe:: install
 #
 
-# tilequeue user
-user_account node[:tilequeue][:user][:user] do
-  manage_home true
-  create_group true
-  home "/home/#{node[:tilequeue][:user][:user]}"
-end
-
 # dev packages required by python packages
 %w(
   python-dev
