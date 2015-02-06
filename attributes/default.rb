@@ -63,7 +63,7 @@ default[:tilequeue][:logging][:config]                          = "#{default[:ti
 default[:tilequeue][:tilediff][:redis][:host]                   = 'localhost'
 default[:tilequeue][:tilediff][:redis][:port]                   = 6379
 default[:tilequeue][:tilediff][:redis][:db]                     = 0
-default[:tilequeue][:tilediff][:redis][:cache_set_key]          = 'tilestache.cache'
+default[:tilequeue][:tilediff][:redis][:cache_set_key]          = 'tilequeue.tiles-of-interest'
 
 default[:tilequeue][:tilediff][:script][:path]                  = '/usr/local/bin/tilequeue-tilediff.sh'
 default[:tilequeue][:tilediff][:script][:output]                = '/tmp/tilequeue-tilediff.log'
