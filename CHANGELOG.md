@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.5
+-----
+* remove unused tilequeue configuration
+
 0.0.4
 -----
 * update tilequeue logging configuration
