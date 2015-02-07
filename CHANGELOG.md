@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.4
+-----
+* update tilequeue logging configuration
+
 0.0.3
 -----
 * update tiles of interest key
