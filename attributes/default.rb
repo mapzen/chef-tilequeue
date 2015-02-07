@@ -49,7 +49,6 @@ default[:tilequeue][:tiles][:zoom_start]                        = 0
 default[:tilequeue][:tiles][:zoom_until]                        = 15
 default[:tilequeue][:tiles][:top_tiles][:zoom_start]            = 11
 default[:tilequeue][:tiles][:top_tiles][:zoom_until]            = 20
-default[:tilequeue][:tiles][:expired]                           = '/tmp/expired.list'
 default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-tiles'
 
 default[:tilequeue][:workers]                                   = 4

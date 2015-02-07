@@ -21,7 +21,6 @@ tiles:
   zoom-start: <%= node[:tilequeue][:tiles][:zoom_start] %>
   zoom-until: <%= node[:tilequeue][:tiles][:zoom_until] %>
   daemon: true
-  expired: <%= node[:tilequeue][:tiles][:expired] %>
   expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
 workers: <%= node[:tilequeue][:workers] %>
 messages_at_once: <%= node[:tilequeue][:messages_at_once] %>
@@ -35,7 +34,6 @@ redis:
   port: <%= node[:tilequeue][:tilediff][:redis][:port] %>
   db: <%= node[:tilequeue][:tilediff][:redis][:db] %>
   cache-set-key: <%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
-  diff-set-key: tilestache.diffs
 postgresql:
   hosts: <%= node[:tilequeue][:postgresql][:hosts] %>
   port: 5432
