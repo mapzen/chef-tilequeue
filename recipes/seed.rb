@@ -12,5 +12,6 @@ cfg = "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}"
 log = node[:tilequeue][:seed][:log]
 
 bash 'tilequeue-seed-cmd' do
-  code "nohup #{bin} seed --config #{cfg} 2>&1 >#{log}"
+  code    "#{bin} seed --config #{cfg} 2>&1 >#{log}"
+  timeout node[:tilequeue][:seed][:timeout]
 end

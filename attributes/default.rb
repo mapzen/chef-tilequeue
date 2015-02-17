@@ -76,6 +76,7 @@ default[:tilequeue][:tilediff][:cron][:user]                    = default[:tileq
 
 default[:tilequeue][:seed][:log_dir]                            = '/var/log/tilequeue'
 default[:tilequeue][:seed][:log]                                = '/var/log/tilequeue/seed.log'
+default[:tilequeue][:seed][:timeout]                            = 28_800  # 8 hours
 
 default[:tilequeue][:postgresql][:hosts]                        = ['localhost']
 default[:tilequeue][:postgresql][:database]                     = 'osm'

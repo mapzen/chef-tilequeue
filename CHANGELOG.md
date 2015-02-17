@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.6
+-----
+* run seed process with timeout
+
 0.0.5
 -----
 * remove unused tilequeue configuration
