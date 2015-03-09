@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.7
+-----
+* add enqueue_tiles_of_interest logger
+
 0.0.6
 -----
 * run seed process with timeout
