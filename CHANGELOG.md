@@ -4,6 +4,7 @@ CHANGELOG
 0.0.6
 -----
 * run seed process with timeout
+* bump mapbox-vector-tile -> 0.0.6
 
 0.0.5
 -----
