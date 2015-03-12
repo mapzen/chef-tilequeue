@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.8
+-----
+* config updates to support pgbouncer
+
 0.0.7
 -----
 * add enqueue_tiles_of_interest logger
