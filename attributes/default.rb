@@ -50,8 +50,10 @@ default[:tilequeue][:tiles][:top_tiles][:zoom_start]            = 11
 default[:tilequeue][:tiles][:top_tiles][:zoom_until]            = 20
 default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-tiles'
 
-default[:tilequeue][:workers]                                   = 4
-default[:tilequeue][:messages_at_once]                          = 2
+default[:tilequeue][:process][:n_simultaneous_query_sets]       = 0
+default[:tilequeue][:process][:log_queue_sizes]                 = true
+default[:tilequeue][:process][:log_queue_sizes_seconds]         = 30
+
 
 default[:tilequeue][:tilestache][:config]                       = '/etc/tilestache/tilestache.conf'
 default[:tilequeue][:tilestache][:formats]                      = %w(json)
