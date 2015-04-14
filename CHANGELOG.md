@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.0.9
+-----
+* remove no longer used psutil
+* update tilequeue configuration
+
 0.0.8
 -----
 * config updates to support pgbouncer
