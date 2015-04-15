@@ -54,7 +54,6 @@ default[:tilequeue][:process][:n_simultaneous_query_sets]       = 0
 default[:tilequeue][:process][:log_queue_sizes]                 = true
 default[:tilequeue][:process][:log_queue_sizes_seconds]         = 30
 
-
 default[:tilequeue][:tilestache][:config]                       = '/etc/tilestache/tilestache.conf'
 default[:tilequeue][:tilestache][:formats]                      = %w(json)
 
