@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.10
+------
+* bump mapbox-vector-tile -> 0.0.7
+
 0.0.9
 -----
 * remove no longer used psutil
