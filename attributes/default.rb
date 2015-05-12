@@ -6,6 +6,7 @@
 default[:tilequeue][:cfg_path]                                  = '/etc/tilequeue'
 default[:tilequeue][:cfg_file]                                  = 'config.yaml'
 default[:tilequeue][:bin_path]                                  = '/usr/local/bin/tilequeue'
+default[:tilequeue][:logging_file]                              = 'logging.conf'
 
 default[:tilequeue][:install_method]                            = 'pip_requirements'
 default[:tilequeue][:pip_requirements_location]                 = "#{Chef::Config[:file_cache_path]}/tilequeue-pip-requirements.txt"
