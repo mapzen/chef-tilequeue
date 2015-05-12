@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.0.11
+------
+* update configuration for seed and intersect
+* add config to support seeding at low zooms
+* remove unused seed recipe
+
 0.0.10
 ------
 * bump mapbox-vector-tile -> 0.0.7
