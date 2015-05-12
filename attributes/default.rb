@@ -45,10 +45,13 @@ default[:tilequeue][:aws][:credentials][:aws_secret_access_key] = ''
 
 default[:tilequeue][:tiles][:all][:zoom_start]                  = 0
 default[:tilequeue][:tiles][:all][:zoom_until]                  = 10
+default[:tilequeue][:tiles][:metro_extract][:url]               = 'https://raw.githubusercontent.com/mapzen/metroextractor-cities/master/cities.json'
 default[:tilequeue][:tiles][:metro_extract][:zoom_start]        = 11
 default[:tilequeue][:tiles][:metro_extract][:zoom_until]        = 15
+default[:tilequeue][:tiles][:top_tiles][:url]                   = 'https://gist.github.com/brunosan/b7ce3df8b48229a61b5b/raw/37e42e77f253bc204076111c92acc4d5e653edd2/top_50k_tiles.csv'
 default[:tilequeue][:tiles][:top_tiles][:zoom_start]            = 11
 default[:tilequeue][:tiles][:top_tiles][:zoom_until]            = 20
+default[:tilequeue][:tiles][:should_add_to_tiles_of_interest]   = true
 default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-tiles'
 default[:tilequeue][:tiles][:parent_zoom_until]                 = 0
 
