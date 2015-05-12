@@ -8,6 +8,7 @@
   git::default
   python::default
   tilequeue::user
+  tilequeue::config
   tilequeue::install
 ).each do |r|
   include_recipe r
