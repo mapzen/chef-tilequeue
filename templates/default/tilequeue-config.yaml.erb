@@ -10,18 +10,21 @@ aws:
     aws_access_key_id: <%= node[:tilequeue][:aws][:credentials][:aws_access_key_id] %>
     aws_secret_access_key: <%= node[:tilequeue][:aws][:credentials][:aws_secret_access_key] %>
 tiles:
-  metro-extract:
-    url: https://raw.githubusercontent.com/mapzen/metroextractor-cities/master/cities.json
-    zoom-filter: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_filter] %>
-  top-tiles:
-    url: https://gist.github.com/brunosan/b7ce3df8b48229a61b5b/raw/37e42e77f253bc204076111c92acc4d5e653edd2/top_50k_tiles.csv
-    zoom-start: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_start] %>
-    zoom-until: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_until] %>
-  unique: true
-  zoom-start: <%= node[:tilequeue][:tiles][:zoom_start] %>
-  zoom-until: <%= node[:tilequeue][:tiles][:zoom_until] %>
-  daemon: true
-  expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
+  seed:
+    all:
+      zoom-start: <%= node[:tilequeue][:tiles][:all][:zoom_start] %>
+      zoom-until: <%= node[:tilequeue][:tiles][:all][:zoom_until] %>
+    metro-extract:
+      url: https://raw.githubusercontent.com/mapzen/metroextractor-cities/master/cities.json
+      zoom-start: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_start] %>
+      zoom-until: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_until] %>
+    top-tiles:
+      url: https://gist.github.com/brunosan/b7ce3df8b48229a61b5b/raw/37e42e77f253bc204076111c92acc4d5e653edd2/top_50k_tiles.csv
+      zoom-start: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_start] %>
+      zoom-until: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_until] %>
+  intersect:
+    expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
+    parent-zoom-until: <%= node[:tilequeue][:tiles][:parent_zoom_until] %>
 process:
   n-simultaneous-query-sets: <%= node[:tilequeue][:process][:n_simultaneous_query_sets] %>
   log-queue-sizes: <%= node[:tilequeue][:process][:log_queue_sizes] %>

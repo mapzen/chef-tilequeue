@@ -43,12 +43,14 @@ default[:tilequeue][:aws][:s3][:path]                           = ''
 default[:tilequeue][:aws][:credentials][:aws_access_key_id]     = ''
 default[:tilequeue][:aws][:credentials][:aws_secret_access_key] = ''
 
-default[:tilequeue][:tiles][:metro_extract][:zoom_filter]       = 11
-default[:tilequeue][:tiles][:zoom_start]                        = 0
-default[:tilequeue][:tiles][:zoom_until]                        = 15
+default[:tilequeue][:tiles][:all][:zoom_start]                  = 0
+default[:tilequeue][:tiles][:all][:zoom_until]                  = 10
+default[:tilequeue][:tiles][:metro_extract][:zoom_start]        = 11
+default[:tilequeue][:tiles][:metro_extract][:zoom_until]        = 15
 default[:tilequeue][:tiles][:top_tiles][:zoom_start]            = 11
 default[:tilequeue][:tiles][:top_tiles][:zoom_until]            = 20
 default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-tiles'
+default[:tilequeue][:tiles][:parent_zoom_until]                 = 0
 
 default[:tilequeue][:process][:n_simultaneous_query_sets]       = 0
 default[:tilequeue][:process][:log_queue_sizes]                 = true
