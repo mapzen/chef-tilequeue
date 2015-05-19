@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.12
+------
+* increase runit restart timeout
+
 0.0.11
 ------
 * update configuration for seed and intersect
