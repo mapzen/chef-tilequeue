@@ -38,9 +38,11 @@ default[:tilequeue][:source][:version]                          = 'master'
 default[:tilequeue][:user][:user]                               = 'tilequeue'
 
 # for yaml configuration file
-default[:tilequeue][:aws][:sqs][:name]                          = ''
-default[:tilequeue][:aws][:s3][:bucket]                         = ''
-default[:tilequeue][:aws][:s3][:path]                           = ''
+default[:tilequeue][:queue][:type]                              = 'sqs'
+default[:tilequeue][:queue][:name]                              = ''
+default[:tilequeue][:store][:type]                              = 's3'
+default[:tilequeue][:store][:name]                              = ''
+default[:tilequeue][:store][:path]                              = ''
 default[:tilequeue][:aws][:credentials][:aws_access_key_id]     = ''
 default[:tilequeue][:aws][:credentials][:aws_secret_access_key] = ''
 

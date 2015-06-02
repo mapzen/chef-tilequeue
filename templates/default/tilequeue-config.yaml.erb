@@ -1,11 +1,12 @@
+queue:
+  type: <%= node[:tilequeue][:queue][:type] %>
+  name: <%= node[:tilequeue][:queue][:name] %>
+store:
+  type: <%= node[:tilequeue][:store][:type] %>
+  name: <%= node[:tilequeue][:store][:name] %>
+  path: <%= node[:tilequeue][:store][:path] %>
+  reduced-redundancy: True
 aws:
-  sqs:
-    name: <%= node[:tilequeue][:aws][:sqs][:name] %>
-    timeout-seconds: 20
-  s3:
-    bucket: <%= node[:tilequeue][:aws][:s3][:bucket] %>
-    path: <%= node[:tilequeue][:aws][:s3][:path] %>
-    reduced-redundancy: True
   credentials:
     aws_access_key_id: <%= node[:tilequeue][:aws][:credentials][:aws_access_key_id] %>
     aws_secret_access_key: <%= node[:tilequeue][:aws][:credentials][:aws_secret_access_key] %>
