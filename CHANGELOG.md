@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.13
+------
+* Update tilequeue config.yaml generation
+
 0.0.12
 ------
 * increase runit restart timeout

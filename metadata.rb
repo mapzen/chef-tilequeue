@@ -4,7 +4,7 @@ maintainer_email 'rob@mapzen.com'
 license          'GPL v3'
 description      'Installs/Configures tilequeue'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.0.12'
+version          '0.0.13'
 
 recipe 'tilequeue', 'Installs tilequeue'
 
