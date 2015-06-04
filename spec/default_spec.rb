@@ -15,7 +15,7 @@ describe 'tilequeue::default' do
     apt::default
     git::default
     python::default
-    tilequeue::install
+    tilequeue::default
   ).each do |r|
     it "should include the recipe #{r}" do
       expect(chef_run).to include_recipe r
