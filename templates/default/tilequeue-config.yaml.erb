@@ -12,17 +12,29 @@ aws:
     aws_secret_access_key: <%= node[:tilequeue][:aws][:credentials][:aws_secret_access_key] %>
 tiles:
   seed:
+    <%- if node[:tilequeue][:tiles][:all][:enabled] -%>
     all:
       zoom-start: <%= node[:tilequeue][:tiles][:all][:zoom_start] %>
       zoom-until: <%= node[:tilequeue][:tiles][:all][:zoom_until] %>
+    <%- end -%>
+    <%- if node[:tilequeue][:tiles][:metro_extract][:enabled] -%>
     metro-extract:
       url: <%= node[:tilequeue][:tiles][:metro_extract][:url] %>
       zoom-start: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_start] %>
       zoom-until: <%= node[:tilequeue][:tiles][:metro_extract][:zoom_until] %>
+    <%- end -%>
+    <%- if node[:tilequeue][:tiles][:top_tiles][:enabled] -%>
     top-tiles:
       url: <%= node[:tilequeue][:tiles][:top_tiles][:url] %>
       zoom-start: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_start] %>
       zoom-until: <%= node[:tilequeue][:tiles][:top_tiles][:zoom_until] %>
+    <%- end -%>
+    <%- if node[:tilequeue][:tiles][:custom][:enabled] -%>
+    custom:
+      zoom-start: <%= node[:tilequeue][:tiles][:custom][:zoom_start] %>
+      zoom-until: <%= node[:tilequeue][:tiles][:custom][:zoom_until] %>
+      bboxes: <%= node[:tilequeue][:tiles][:custom][:bboxes] %>
+    <%- end -%>
     should-add-to-tiles-of-interest: <%= node[:tilequeue][:tiles][:should_add_to_tiles_of_interest] %>
   intersect:
     expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
