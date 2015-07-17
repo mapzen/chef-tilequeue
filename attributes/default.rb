@@ -14,7 +14,7 @@ default[:tilequeue][:pip_requirements] = %w(
   argparse==1.2.1
   boto==2.33.0
   hiredis==0.1.5
-  mapbox-vector-tile==0.0.7
+  mapbox-vector-tile==0.0.10
   ModestMaps==1.4.6
   Pillow==2.6.1
   protobuf==2.6.0
@@ -23,6 +23,7 @@ default[:tilequeue][:pip_requirements] = %w(
   PyYAML==3.11
   Shapely==1.4.3
   simplejson==3.6.4
+  StreetNames==0.1.5
   git+https://github.com/mapzen/tilequeue#egg=tilequeue
   git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
   Werkzeug==0.9.6
