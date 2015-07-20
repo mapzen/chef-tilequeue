@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.0.14
+------
+* Allow more explicit control over seed config
+* Bump pip requirements
+
 0.0.13
 ------
 * Update tilequeue config.yaml generation
