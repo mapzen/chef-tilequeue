@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.0.15
+------
+* Bump pip requirements
+
 0.0.14
 ------
 * Allow more explicit control over seed config
