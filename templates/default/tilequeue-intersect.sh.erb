@@ -3,7 +3,7 @@
 TILEQUEUE=<%= node[:tilequeue][:bin_path] %>
 TILEQUEUE_CFG=<%= "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" %>
 
-PIDFILE=<%= node[:tilequeue][:tilediff][:lock][:pid] %>
+PIDFILE=<%= node[:tilequeue][:intersect][:lock][:pid] %>
 
 getlock()
 {

@@ -9,7 +9,7 @@ default[:tilequeue][:bin_path]                                  = '/usr/local/bi
 default[:tilequeue][:logging_file]                              = 'logging.conf'
 
 default[:tilequeue][:install_method]                            = 'pip_requirements'
-default[:tilequeue][:pip_requirements_location]                 = "#{Chef::Config[:file_cache_path]}/tilequeue-pip-requirements.txt"
+default[:tilequeue][:pip_requirements_location]                 = "#{node[:tilequeue][:cfg_path]}/pip-requirements.txt"
 default[:tilequeue][:pip_requirements] = %w(
   argparse==1.2.1
   boto==2.33.0
@@ -32,13 +32,11 @@ default[:tilequeue][:pip_requirements] = %w(
   wsgiref==0.1.2
 )
 
-# default[:tilequeue][:install_method]                            = 'source'
-default[:tilequeue][:source][:install_dir]                      = '/opt/tilequeue'
-default[:tilequeue][:source][:repo]                             = 'https://github.com/mapzen/tilequeue.git'
-default[:tilequeue][:source][:version]                          = 'master'
-
 # tilequeue user to create
 default[:tilequeue][:user][:user]                               = 'tilequeue'
+default[:tilequeue][:user][:home]                               = "/home/#{node[:tilequeue][:user][:user]}"
+default[:tilequeue][:user][:create_group]                       = true
+default[:tilequeue][:user][:enabled]                            = true
 
 # for yaml configuration file
 default[:tilequeue][:queue][:type]                              = 'sqs'
@@ -72,31 +70,31 @@ default[:tilequeue][:process][:n_simultaneous_query_sets]       = 0
 default[:tilequeue][:process][:log_queue_sizes]                 = true
 default[:tilequeue][:process][:log_queue_sizes_seconds]         = 30
 
-default[:tilequeue][:tilestache][:config]                       = '/etc/tilestache/tilestache.conf'
-default[:tilequeue][:tilestache][:formats]                      = %w(json)
+default[:tilequeue][:process][:formats]                         = %w(json)
 
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 
-default[:tilequeue][:tilediff][:redis][:host]                   = 'localhost'
-default[:tilequeue][:tilediff][:redis][:port]                   = 6379
-default[:tilequeue][:tilediff][:redis][:db]                     = 0
-default[:tilequeue][:tilediff][:redis][:cache_set_key]          = 'tilequeue.tiles-of-interest'
+default[:tilequeue][:vector_datasource][:repository]            = 'https://github.com/mapzen/vector-datasource.git'
+default[:tilequeue][:vector_datasource][:revision]              = 'master'
 
-default[:tilequeue][:tilediff][:script][:path]                  = '/usr/local/bin/tilequeue-tilediff.sh'
-default[:tilequeue][:tilediff][:script][:output]                = '/tmp/tilequeue-tilediff.log'
-default[:tilequeue][:tilediff][:lock][:pid]                     = '/tmp/tilequeue-tilediff.pid'
+default[:tilequeue][:intersect][:redis][:host]                  = 'localhost'
+default[:tilequeue][:intersect][:redis][:port]                  = 6379
+default[:tilequeue][:intersect][:redis][:db]                    = 0
+default[:tilequeue][:intersect][:redis][:cache_set_key]         = 'tilequeue.tiles-of-interest'
 
-default[:tilequeue][:tilediff][:cron][:enabled]                 = true
-default[:tilequeue][:tilediff][:cron][:minute]                  = '0'
-default[:tilequeue][:tilediff][:cron][:hour]                    = '*'
-default[:tilequeue][:tilediff][:cron][:day]                     = '*'
-default[:tilequeue][:tilediff][:cron][:user]                    = default[:tilequeue][:user][:user]
+default[:tilequeue][:intersect][:script][:path]                 = '/usr/local/bin/tilequeue-intersect.sh'
+default[:tilequeue][:intersect][:script][:output]               = '/tmp/tilequeue-intersect.log'
+default[:tilequeue][:intersect][:lock][:pid]                    = '/tmp/tilequeue-intersect.pid'
 
-default[:tilequeue][:seed][:log_dir]                            = '/var/log/tilequeue'
-default[:tilequeue][:seed][:log]                                = '/var/log/tilequeue/seed.log'
-default[:tilequeue][:seed][:timeout]                            = 28_800  # 8 hours
+default[:tilequeue][:intersect][:cron][:enabled]                = true
+default[:tilequeue][:intersect][:cron][:minute]                 = '0'
+default[:tilequeue][:intersect][:cron][:hour]                   = '*'
+default[:tilequeue][:intersect][:cron][:day]                    = '*'
+default[:tilequeue][:intersect][:cron][:user]                   = node[:tilequeue][:user][:user]
 
 default[:tilequeue][:postgresql][:host]                         = 'localhost'
 default[:tilequeue][:postgresql][:dbnames]                      = ['osm']
 default[:tilequeue][:postgresql][:user]                         = 'osm'
 default[:tilequeue][:postgresql][:password]                     = nil
+
+default[:tilequeue][:runit][:timeout]                           = 300
