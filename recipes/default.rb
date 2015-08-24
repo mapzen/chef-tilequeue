@@ -4,11 +4,7 @@
 #
 
 %w(
-  apt::default
-  git::default
-  python::default
-  tilequeue::user
-  tilequeue::config
+  tilequeue::setup
   tilequeue::install
 ).each do |r|
   include_recipe r

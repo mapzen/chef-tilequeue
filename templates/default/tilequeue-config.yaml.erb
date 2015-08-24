@@ -43,16 +43,17 @@ process:
   n-simultaneous-query-sets: <%= node[:tilequeue][:process][:n_simultaneous_query_sets] %>
   log-queue-sizes: <%= node[:tilequeue][:process][:log_queue_sizes] %>
   log-queue-sizes-interval-seconds: <%= node[:tilequeue][:process][:log_queue_sizes_seconds] %>
-tilestache:
-  config: <%= node[:tilequeue][:tilestache][:config] %>
-  formats: <%= node[:tilequeue][:tilestache][:formats] %>
+  query-config: <%= node[:tilequeue][:cfg_path] %>/vector-datasource/queries.yaml
+  template-path: <%= node[:tilequeue][:cfg_path] %>/vector-datasource/queries
+  reload-templates: false
+  formats: <%= node[:tilequeue][:process][:formats] %>
 logging:
   config: <%= node[:tilequeue][:logging][:config] %>
 redis:
-  host: <%= node[:tilequeue][:tilediff][:redis][:host] %>
-  port: <%= node[:tilequeue][:tilediff][:redis][:port] %>
-  db: <%= node[:tilequeue][:tilediff][:redis][:db] %>
-  cache-set-key: <%= node[:tilequeue][:tilediff][:redis][:cache_set_key] %>
+  host: <%= node[:tilequeue][:intersect][:redis][:host] %>
+  port: <%= node[:tilequeue][:intersect][:redis][:port] %>
+  db: <%= node[:tilequeue][:intersect][:redis][:db] %>
+  cache-set-key: <%= node[:tilequeue][:intersect][:redis][:cache_set_key] %>
 postgresql:
   host: <%= node[:tilequeue][:postgresql][:host] %>
   port: 5432
