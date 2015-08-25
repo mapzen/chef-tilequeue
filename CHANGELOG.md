@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.1.0
+-----
+* Updates to support vector-datasource query templates
+* Re-organize recipes
+
 0.0.15
 ------
 * Bump pip requirements
