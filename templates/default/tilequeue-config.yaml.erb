@@ -43,8 +43,8 @@ process:
   n-simultaneous-query-sets: <%= node[:tilequeue][:process][:n_simultaneous_query_sets] %>
   log-queue-sizes: <%= node[:tilequeue][:process][:log_queue_sizes] %>
   log-queue-sizes-interval-seconds: <%= node[:tilequeue][:process][:log_queue_sizes_seconds] %>
-  query-config: <%= node[:tilequeue][:cfg_path] %>/vector-datasource/queries.yaml
-  template-path: <%= node[:tilequeue][:cfg_path] %>/vector-datasource/queries
+  query-config: <%= node[:tilequeue][:vector_datasource][:path] %>/queries.yaml
+  template-path: <%= node[:tilequeue][:vector_datasource][:path] %>/queries
   reload-templates: false
   formats: <%= node[:tilequeue][:process][:formats] %>
 logging:
