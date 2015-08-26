@@ -11,6 +11,17 @@
   include_recipe r
 end
 
+# dev packages required by python packages
+%w(
+  python-dev
+  libgeos-dev
+  libpq-dev
+  python-pip
+  python-pil
+).each do |p|
+  package p
+end
+
 user_account node[:tilequeue][:user][:user] do
   manage_home true
   create_group node[:tilequeue][:user][:create_group]

@@ -3,17 +3,6 @@
 # Recipe:: install
 #
 
-# dev packages required by python packages
-%w(
-  python-dev
-  libgeos-dev
-  libpq-dev
-  python-pip
-  python-pil
-).each do |p|
-  package p
-end
-
 template "#{node[:tilequeue][:cfg_path]}/#{node[:tilequeue][:cfg_file]}" do
   source 'tilequeue-config.yaml.erb'
 end
