@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.1.1
+-----
+* Introduce an easier way to override revisions
+
 0.1.0
 -----
 * Updates to support vector-datasource query templates
