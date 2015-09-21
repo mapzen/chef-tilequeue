@@ -10,6 +10,10 @@ default[:tilequeue][:logging_file]                              = 'logging.conf'
 
 default[:tilequeue][:install_method]                            = 'pip_requirements'
 default[:tilequeue][:pip_requirements_location]                 = "#{node[:tilequeue][:cfg_path]}/pip-requirements.txt"
+
+default[:tilequeue][:revision][:tilestache] = 'integration-1'
+default[:tilequeue][:revision][:tilequeue] = 'master'
+
 default[:tilequeue][:pip_requirements] = %w(
   argparse==1.2.1
   boto==2.33.0
@@ -24,11 +28,13 @@ default[:tilequeue][:pip_requirements] = %w(
   Shapely==1.4.3
   simplejson==3.6.4
   StreetNames==0.1.5
-  git+https://github.com/mapzen/tilequeue#egg=tilequeue
-  git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
   Werkzeug==0.9.6
   wsgiref==0.1.2
 )
+default[:tilequeue][:pip_requirements] += [
+  "git+https://github.com/mapzen/TileStache@#{node[:tilequeue][:revision][:tilestache]}#egg=TileStache",
+  "git+https://github.com/mapzen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"
+]
 
 # tilequeue user to create
 default[:tilequeue][:user][:user]                               = 'tilequeue'
