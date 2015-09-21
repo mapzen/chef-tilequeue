@@ -26,8 +26,6 @@ default[:tilequeue][:pip_requirements] = %w(
   StreetNames==0.1.5
   git+https://github.com/mapzen/tilequeue#egg=tilequeue
   git+https://github.com/mapzen/TileStache@integration-1#egg=TileStache
-  git+https://github.com/mapzen/tilestache-providers#egg=tilestache-providers
-  git+https://github.com/mapzen/tileglue#egg=tileglue
   Werkzeug==0.9.6
   wsgiref==0.1.2
 )
