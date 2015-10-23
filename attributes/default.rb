@@ -103,3 +103,8 @@ default[:tilequeue][:postgresql][:user]                         = 'osm'
 default[:tilequeue][:postgresql][:password]                     = nil
 
 default[:tilequeue][:runit][:timeout]                           = 300
+
+default[:tilequeue][:wof][:postgresql][:host]                   = node[:tilequeue][:postgresql][:host]
+default[:tilequeue][:wof][:postgresql][:dbname]                 = node[:tilequeue][:postgresql][:dbname]
+default[:tilequeue][:wof][:postgresql][:user]                   = node[:tilequeue][:postgresql][:user]
+default[:tilequeue][:wof][:postgresql][:password]               = node[:tilequeue][:postgresql][:password]

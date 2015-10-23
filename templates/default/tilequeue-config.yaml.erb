@@ -60,3 +60,11 @@ postgresql:
   dbnames: <%= node[:tilequeue][:postgresql][:dbnames] %>
   user: <%= node[:tilequeue][:postgresql][:user] %>
   password: <%= node[:tilequeue][:postgresql][:password] %>
+wof:
+  neighbourhoods_url: https://github.com/whosonfirst/whosonfirst-data/blob/master/meta/wof-neighbourhood-latest.csv?raw=true
+  postgresql:
+    host: <%= node[:tilequeue][:wof][:postgresql][:host] %>
+    port: 5432
+    dbname: <%= node[:tilequeue][:wof][:postgresql][:dbname] %>
+    user: <%= node[:tilequeue][:wof][:postgresql][:user] %>
+    password: <%= node[:tilequeue][:wof][:postgresql][:password] %>
