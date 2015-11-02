@@ -12,13 +12,13 @@ default[:tilequeue][:install_method]                            = 'pip_requireme
 default[:tilequeue][:pip_requirements_location]                 = "#{node[:tilequeue][:cfg_path]}/pip-requirements.txt"
 
 default[:tilequeue][:revision][:tilestache] = 'integration-1'
+default[:tilequeue][:revision][:mapbox_vector_tile] = 'master'
 default[:tilequeue][:revision][:tilequeue] = 'master'
 
 default[:tilequeue][:pip_requirements] = %w(
   argparse==1.2.1
   boto==2.33.0
   hiredis==0.1.5
-  mapbox-vector-tile==0.0.11
   ModestMaps==1.4.6
   Pillow==2.6.1
   protobuf==2.6.0
@@ -33,6 +33,7 @@ default[:tilequeue][:pip_requirements] = %w(
 )
 default[:tilequeue][:pip_requirements] += [
   "git+https://github.com/mapzen/TileStache@#{node[:tilequeue][:revision][:tilestache]}#egg=TileStache",
+  "git+https://github.com/mapzen/mapbox-vector-tile@#{node[:tilequeue][:revision][:mapbox_vector_tile]}#egg=mapbox-vector-tile",
   "git+https://github.com/mapzen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"
 ]
 
