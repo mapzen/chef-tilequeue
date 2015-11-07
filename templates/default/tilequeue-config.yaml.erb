@@ -61,10 +61,10 @@ postgresql:
   user: <%= node[:tilequeue][:postgresql][:user] %>
   password: <%= node[:tilequeue][:postgresql][:password] %>
 wof:
-  neighbourhoods-meta-url: node[:tilequeue][:wof][:meta_url][:neighbourhoods]
-  microhoods-meta-url: node[:tilequeue][:wof][:meta_url][:microhoods]
-  macrohoods-meta-url: node[:tilequeue][:wof][:meta_url][:macrohoods]
-  data-prefix-url: node[:tilequeue][:wof][:data_prefix_url]
+  neighbourhoods-meta-url: <%= node[:tilequeue][:wof][:meta_url][:neighbourhoods] %>
+  microhoods-meta-url: <%= node[:tilequeue][:wof][:meta_url][:microhoods] %>
+  macrohoods-meta-url: <%= node[:tilequeue][:wof][:meta_url][:macrohoods] %>
+  data-prefix-url: <%= node[:tilequeue][:wof][:data_prefix_url] %>
   postgresql:
     host: <%= node[:tilequeue][:wof][:postgresql][:host] %>
     port: 5432
