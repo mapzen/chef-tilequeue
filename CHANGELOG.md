@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.1.2
+-----
+* Support custom revision of mapbox-vector-tile
+* Configure WOF neighbourhood processing
+
 0.1.1
 -----
 * Introduce an easier way to override revisions
