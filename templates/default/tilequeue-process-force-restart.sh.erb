@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Since we're in a position to handle it, might as well handle the
+# case for when the instance is first started. We won't need to
+# restart the processes then.
+# Note that this will only work for instance-store device
+# instances. The ebs device instances will "remember" that their setup
+# was run, and will kill the processes on first startup anyway.
+# We should be able to handle this scenario by having a shutdown
+# recipe remove this file, but it doesn't seem like it matters enough.
+
+if [ -r <%= node[:tilequeue][:force_restart][:setup_ran_path] %> ]
+then
+    # try to exit the process more gracefully first
+    sv -w <%= node[:tilequeue][:runit][:timeout] %> restart tilequeue
+    if [ $? -ne 0 ]
+    then
+        # if the process didn't restart in time, force kill it
+        # runit will start it back up again for us
+        ps -ef | grep -i 'tilequeue [p]rocess' | awk '{print $2}' | xargs kill -9
+    fi
+else
+    touch <%= node[:tilequeue][:force_restart][:setup_ran_path] %>
+fi
