@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.1.3
+-----
+* Add script to force restart processors
+
 0.1.2
 -----
 * Support custom revision of mapbox-vector-tile
