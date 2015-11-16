@@ -114,3 +114,6 @@ default[:tilequeue][:wof][:postgresql][:host]                   = node[:tilequeu
 default[:tilequeue][:wof][:postgresql][:dbname]                 = node[:tilequeue][:postgresql][:dbname]
 default[:tilequeue][:wof][:postgresql][:user]                   = node[:tilequeue][:postgresql][:user]
 default[:tilequeue][:wof][:postgresql][:password]               = node[:tilequeue][:postgresql][:password]
+
+default[:tilequeue][:force_restart][:script]                    = '/usr/local/bin/tilequeue-process-force-restart.sh'
+default[:tilequeue][:force_restart][:setup_ran_path]            = '/etc/tilequeue/setup-ran'
