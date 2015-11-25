@@ -5,6 +5,7 @@ store:
   type: <%= node[:tilequeue][:store][:type] %>
   name: <%= node[:tilequeue][:store][:name] %>
   path: <%= node[:tilequeue][:store][:path] %>
+  date-prefix: <%= node[:tilequeue][:store][:date_prefix] %>
   reduced-redundancy: True
 aws:
   credentials:
