@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.1.4
+-----
+* Support store date-prefix config
+
 0.1.3
 -----
 * Add script to force restart processors
