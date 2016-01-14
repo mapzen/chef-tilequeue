@@ -17,11 +17,14 @@ git node[:tilequeue][:vector_datasource][:path] do
   revision node[:tilequeue][:vector_datasource][:revision]
 end
 
-# generate a pip requirements file for consistent python package
-# versions
+# pip install base requirements
 file node[:tilequeue][:pip_requirements_location] do
   content node[:tilequeue][:pip_requirements].join("\n")
 end
-
-# install python packages from requirements file
 python_pip "-U -r #{node[:tilequeue][:pip_requirements_location]}"
+
+# pip install extras
+file node[:tilequeue][:pip_requirements_extra_location] do
+  content node[:tilequeue][:pip_requirements_extra].join("\n")
+end
+python_pip "-U -r #{node[:tilequeue][:pip_requirements_extra_location]}"
