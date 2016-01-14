@@ -18,6 +18,7 @@ end
   libpq-dev
   python-pip
   python-pil
+  libjpeg-dev
 ).each do |p|
   package p
 end
