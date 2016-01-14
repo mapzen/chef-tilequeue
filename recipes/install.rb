@@ -25,6 +25,6 @@ python_pip "-U -r #{node[:tilequeue][:pip_requirements_location]}"
 
 # pip install extras
 file node[:tilequeue][:pip_requirements_extra_location] do
-  content node[:tilequeue][:pip_extra_requirements].join("\n")
+  content node[:tilequeue][:pip_requirements_extra].join("\n")
 end
 python_pip "-U -r #{node[:tilequeue][:pip_requirements_extra_location]}"
