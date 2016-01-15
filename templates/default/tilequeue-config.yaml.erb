@@ -66,6 +66,7 @@ wof:
   microhoods-meta-url: <%= node[:tilequeue][:wof][:meta_url][:microhoods] %>
   macrohoods-meta-url: <%= node[:tilequeue][:wof][:meta_url][:macrohoods] %>
   data-prefix-url: <%= node[:tilequeue][:wof][:data_prefix_url] %>
+  max-retries: <%= node[:tilequeue][:wof][:max_retries] %>
   postgresql:
     host: <%= node[:tilequeue][:wof][:postgresql][:host] %>
     port: 5432
