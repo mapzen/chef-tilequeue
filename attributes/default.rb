@@ -113,6 +113,9 @@ default[:tilequeue][:wof][:meta_url][:neighbourhoods]           = 'https://githu
 default[:tilequeue][:wof][:meta_url][:microhoods]               = 'https://github.com/whosonfirst/whosonfirst-data/raw/master/meta/wof-microhood-latest.csv'
 default[:tilequeue][:wof][:meta_url][:macrohoods]               = 'https://github.com/whosonfirst/whosonfirst-data/raw/master/meta/wof-macrohood-latest.csv'
 default[:tilequeue][:wof][:data_prefix_url]                     = 'http://whosonfirst.mapzen.com/data'
+# this defaults to not retrying at all, please override in stack.json or your
+# own site recipes.
+default[:tilequeue][:wof][:max_retries]                         = 0
 
 default[:tilequeue][:wof][:postgresql][:host]                   = node[:tilequeue][:postgresql][:host]
 default[:tilequeue][:wof][:postgresql][:dbname]                 = node[:tilequeue][:postgresql][:dbname]
