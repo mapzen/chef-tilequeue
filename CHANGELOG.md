@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.3.0
+-----
+* Support configuration for storing layer formats
+
 0.2.1
 -----
 * Update python dependencies
