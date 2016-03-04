@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.2.1
+-----
+* Update python dependencies
+* Add configuration for retrying WOF HTTP fetches.
+
 0.1.4
 -----
 * Support store date-prefix config
