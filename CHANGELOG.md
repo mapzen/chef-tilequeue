@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.4.0
+-----
+* Ensure all python package versions are pegged
+
 0.3.0
 -----
 * Support configuration for storing layer formats
