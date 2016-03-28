@@ -10,7 +10,6 @@ default[:tilequeue][:logging_file]                              = 'logging.conf'
 
 default[:tilequeue][:install_method]                            = 'pip_requirements'
 default[:tilequeue][:pip_requirements_location]                 = "#{node[:tilequeue][:cfg_path]}/pip-requirements.txt"
-default[:tilequeue][:pip_requirements_extra_location]           = "#{node[:tilequeue][:cfg_path]}/pip-requirements_extra.txt"
 
 default[:tilequeue][:revision][:tilestache] = 'integration-1'
 default[:tilequeue][:revision][:mapbox_vector_tile] = 'master'
@@ -25,7 +24,6 @@ default[:tilequeue][:pip_requirements] = %w(
   Pillow==2.6.1
   protobuf==2.6.0
   psycopg2==2.5.4
-  python-dateutil==2.4.2
   python-memcached==1.53
   PyYAML==3.11
   Shapely==1.4.3
@@ -35,7 +33,11 @@ default[:tilequeue][:pip_requirements] = %w(
   wsgiref==0.1.2
 )
 
-default[:tilequeue][:pip_requirements_extra] = [
+# to work around edtf installation failure
+default[:tilequeue][:pip_requirements_dateutil] = 'python-dateutil==2.4.2'
+default[:tilequeue][:pip_requirements].push(node[:tilequeue][:pip_requirements_dateutil])
+
+default[:tilequeue][:pip_requirements] += [
   "git+https://github.com/mapzen/TileStache@#{node[:tilequeue][:revision][:tilestache]}#egg=TileStache",
   "git+https://github.com/mapzen/mapbox-vector-tile@#{node[:tilequeue][:revision][:mapbox_vector_tile]}#egg=mapbox-vector-tile",
   "git+https://github.com/mapzen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"

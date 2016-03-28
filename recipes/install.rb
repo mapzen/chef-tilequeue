@@ -17,14 +17,12 @@ git node[:tilequeue][:vector_datasource][:path] do
   revision node[:tilequeue][:vector_datasource][:revision]
 end
 
-# pip install base requirements
+# python-dateutil needs to be installed first as a workaround for edtf
+# otherwise edtf installation fails
+python_pip "-U #{node[:tilequeue][:pip_requirements_dateutil]}"
+
+# pip install requirements
 file node[:tilequeue][:pip_requirements_location] do
   content node[:tilequeue][:pip_requirements].join("\n")
 end
 python_pip "-U -r #{node[:tilequeue][:pip_requirements_location]}"
-
-# pip install extras
-file node[:tilequeue][:pip_requirements_extra_location] do
-  content node[:tilequeue][:pip_requirements_extra].join("\n")
-end
-python_pip "-U -r #{node[:tilequeue][:pip_requirements_extra_location]}"
