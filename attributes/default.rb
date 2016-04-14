@@ -96,16 +96,6 @@ default[:tilequeue][:intersect][:redis][:port]                  = 6379
 default[:tilequeue][:intersect][:redis][:db]                    = 0
 default[:tilequeue][:intersect][:redis][:cache_set_key]         = 'tilequeue.tiles-of-interest'
 
-default[:tilequeue][:intersect][:script][:path]                 = '/usr/local/bin/tilequeue-intersect.sh'
-default[:tilequeue][:intersect][:script][:output]               = '/tmp/tilequeue-intersect.log'
-default[:tilequeue][:intersect][:lock][:pid]                    = '/tmp/tilequeue-intersect.pid'
-
-default[:tilequeue][:intersect][:cron][:enabled]                = true
-default[:tilequeue][:intersect][:cron][:minute]                 = '0'
-default[:tilequeue][:intersect][:cron][:hour]                   = '*'
-default[:tilequeue][:intersect][:cron][:day]                    = '*'
-default[:tilequeue][:intersect][:cron][:user]                   = node[:tilequeue][:user][:user]
-
 default[:tilequeue][:postgresql][:host]                         = 'localhost'
 default[:tilequeue][:postgresql][:dbnames]                      = ['osm']
 default[:tilequeue][:postgresql][:user]                         = 'osm'
