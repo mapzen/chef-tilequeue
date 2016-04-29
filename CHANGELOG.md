@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.5.0
+-----
+* Remove tilequeue intersect cron
+
 0.4.0
 -----
 * Ensure all python package versions are pegged
