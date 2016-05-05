@@ -88,8 +88,8 @@ default[:tilequeue][:process][:layers_to_format]                = nil
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 
 default[:tilequeue][:vector_datasource][:repository]            = 'https://github.com/mapzen/vector-datasource.git'
-default[:tilequeue][:vector_datasource][:revision]              = 'master'
 default[:tilequeue][:vector_datasource][:path]                  = "#{node[:tilequeue][:cfg_path]}/vector-datasource"
+default[:tilequeue][:revision][:vector_datasource]              = 'master'
 
 default[:tilequeue][:intersect][:redis][:host]                  = 'localhost'
 default[:tilequeue][:intersect][:redis][:port]                  = 6379
