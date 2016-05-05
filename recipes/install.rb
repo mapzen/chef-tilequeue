@@ -14,7 +14,7 @@ end
 git node[:tilequeue][:vector_datasource][:path] do
   action :sync
   repository node[:tilequeue][:vector_datasource][:repository]
-  revision node[:tilequeue][:vector_datasource][:revision]
+  revision node[:tilequeue][:revision][:vector_datasource]
 end
 
 # python-dateutil needs to be installed first as a workaround for edtf
