@@ -24,6 +24,7 @@ default[:tilequeue][:pip_requirements] = %w(
   Pillow==2.6.1
   protobuf==2.6.0
   psycopg2==2.5.4
+  pycountry==1.20
   python-memcached==1.53
   PyYAML==3.11
   Shapely==1.4.3
