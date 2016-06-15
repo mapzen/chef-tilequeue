@@ -89,7 +89,6 @@ default[:tilequeue][:process][:formats]                         = %w(json)
 default[:tilequeue][:process][:layers_to_format]                = nil
 default[:tilequeue][:process][:buffer]                          = nil
 
-
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"
 
 default[:tilequeue][:vector_datasource][:repository]            = 'https://github.com/mapzen/vector-datasource.git'
