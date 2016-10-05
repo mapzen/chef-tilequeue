@@ -1,6 +1,16 @@
 CHANGELOG
 =========
 
+0.6.0
+-----
+* Update software revision variable name
+* Add configuration for wof boroughs meta url
+* Update python dependencies
+  - remove unused python packages and package dependencies
+  - add pycountry python dependency
+  - add pyclipper python dependency
+* Add support for per format buffer configuration
+
 0.5.0
 -----
 * Remove tilequeue intersect cron
