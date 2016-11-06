@@ -42,6 +42,7 @@ tiles:
     parent-zoom-until: <%= node[:tilequeue][:tiles][:parent_zoom_until] %>
 process:
   n-simultaneous-query-sets: <%= node[:tilequeue][:process][:n_simultaneous_query_sets] %>
+  n-simultaneous-s3-storage: <%= node[:tilequeue][:process][:n_simultaneous_s3_storage] %>
   log-queue-sizes: <%= node[:tilequeue][:process][:log_queue_sizes] %>
   log-queue-sizes-interval-seconds: <%= node[:tilequeue][:process][:log_queue_sizes_seconds] %>
   query-config: <%= node[:tilequeue][:vector_datasource][:path] %>/queries.yaml
