@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.7.0
+-----
+* Support simultaneous s3 storage threads configuration
+
 0.6.0
 -----
 * Update software revision variable name
