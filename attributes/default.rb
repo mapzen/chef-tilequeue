@@ -83,6 +83,7 @@ default[:tilequeue][:tiles][:expired_location]                  = '/tmp/expired-
 default[:tilequeue][:tiles][:parent_zoom_until]                 = 0
 
 default[:tilequeue][:process][:n_simultaneous_query_sets]       = 0
+default[:tilequeue][:process][:n_simultaneous_s3_storage]       = 0
 default[:tilequeue][:process][:log_queue_sizes]                 = true
 default[:tilequeue][:process][:log_queue_sizes_seconds]         = 30
 
