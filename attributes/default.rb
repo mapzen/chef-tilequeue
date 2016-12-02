@@ -56,6 +56,7 @@ default[:tilequeue][:user][:enabled]                            = true
 # for yaml configuration file
 default[:tilequeue][:queue][:type]                              = 'sqs'
 default[:tilequeue][:queue][:name]                              = ''
+default[:tilequeue][:queue][:zoom_queue_map]                    = nil  # for multisqs
 default[:tilequeue][:store][:type]                              = 's3'
 default[:tilequeue][:store][:name]                              = ''
 default[:tilequeue][:store][:path]                              = ''
