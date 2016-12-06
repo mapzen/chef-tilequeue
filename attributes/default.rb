@@ -130,3 +130,7 @@ default[:tilequeue][:wof][:postgresql][:password]               = node[:tilequeu
 
 default[:tilequeue][:force_restart][:script]                    = '/usr/local/bin/tilequeue-process-force-restart.sh'
 default[:tilequeue][:force_restart][:setup_ran_path]            = '/etc/tilequeue/setup-ran'
+
+default[:tilequeue][:metatile][:enabled]                      = false
+default[:tilequeue][:metatile][:size]                         = 1
+default[:tilequeue][:metatile][:store_metatile_and_originals] = false
