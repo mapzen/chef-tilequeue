@@ -111,3 +111,8 @@ wof:
     dbname: <%= node[:tilequeue][:wof][:postgresql][:dbname] %>
     user: <%= node[:tilequeue][:wof][:postgresql][:user] %>
     password: <%= node[:tilequeue][:wof][:postgresql][:password] %>
+<%- if node[:tilequeue][:metatile][:enabled] -%>
+metatile:
+  size: <%= node[:tilequeue][:metatile][:size] %>
+  store_metatile_and_originals: <%= node[:tilequeue][:metatile][:store_metatile_and_originals] %>
+<%- end -%>
