@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.7.1
+-----
+* Add support for priority queue configuration
+* Add support for metatile configuration
+
 0.7.0
 -----
 * Support simultaneous s3 storage threads configuration
