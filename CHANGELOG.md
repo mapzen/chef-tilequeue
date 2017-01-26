@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.8.0
+-----
+* Peg usjon version
+
 0.7.1
 -----
 * Add support for priority queue configuration
