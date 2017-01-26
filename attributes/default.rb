@@ -66,6 +66,7 @@ default[:tilequeue][:store][:type]                              = 's3'
 default[:tilequeue][:store][:name]                              = ''
 default[:tilequeue][:store][:path]                              = ''
 default[:tilequeue][:store][:date_prefix]                       = ''
+default[:tilequeue][:store][:reduced_redundancy]                = true
 default[:tilequeue][:aws][:credentials][:aws_access_key_id]     = ''
 default[:tilequeue][:aws][:credentials][:aws_secret_access_key] = ''
 
