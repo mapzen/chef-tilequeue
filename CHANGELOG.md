@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.9.0
+-----
+* Support reduced redundancy configuration
+
 0.8.0
 -----
 * Peg usjon version
