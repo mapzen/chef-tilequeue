@@ -12,7 +12,7 @@ store:
   name: <%= node[:tilequeue][:store][:name] %>
   path: <%= node[:tilequeue][:store][:path] %>
   date-prefix: <%= node[:tilequeue][:store][:date_prefix] %>
-  reduced-redundancy: True
+  reduced-redundancy: <%= node[:tilequeue][:store][:reduced_redundancy] %>
 aws:
   credentials:
     aws_access_key_id: <%= node[:tilequeue][:aws][:credentials][:aws_access_key_id] %>
