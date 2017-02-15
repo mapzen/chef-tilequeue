@@ -95,7 +95,6 @@ default[:tilequeue][:process][:log_queue_sizes]                 = true
 default[:tilequeue][:process][:log_queue_sizes_seconds]         = 30
 
 default[:tilequeue][:process][:formats]                         = %w(json)
-default[:tilequeue][:process][:layers_to_format]                = nil
 default[:tilequeue][:process][:buffer]                          = nil
 
 default[:tilequeue][:logging][:config]                          = "#{default[:tilequeue][:cfg_path]}/logging.conf"

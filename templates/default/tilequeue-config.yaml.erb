@@ -55,15 +55,6 @@ process:
   template-path: <%= node[:tilequeue][:vector_datasource][:path] %>/queries
   reload-templates: false
   formats: <%= node[:tilequeue][:process][:formats] %>
-<%- if node[:tilequeue][:process][:layers_to_format] -%>
-  layers-to-format:
-<%- for layer_to_format in node[:tilequeue][:process][:layers_to_format] -%>
-    - layer: <%= layer_to_format[:layer] %>
-      formats: <%= layer_to_format[:formats] %>
-      zoom-start: <%= layer_to_format[:zoom_start] %>
-      zoom-until: <%= layer_to_format[:zoom_until] %>
-<%- end -%>
-<%- end -%>
 <%- if node[:tilequeue][:process][:buffer] -%>
   buffer:
   <%- node[:tilequeue][:process][:buffer].each do |fmt_ext, fmt_data| -%>
