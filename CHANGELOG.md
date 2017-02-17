@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.10.0
+------
+* Remove configuration of layers to format. (See https://github.com/tilezen/chef-tilequeue/issues/31)
+
 0.9.0
 -----
 * Support reduced redundancy configuration
