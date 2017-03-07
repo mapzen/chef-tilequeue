@@ -16,6 +16,7 @@ default[:tilequeue][:revision][:mapbox_vector_tile] = 'master'
 default[:tilequeue][:revision][:tilequeue] = 'master'
 
 default[:tilequeue][:pip_requirements] = %w(
+  appdirs==1.4.3
   argparse==1.2.1
   boto==2.33.0
   future==0.15.2
