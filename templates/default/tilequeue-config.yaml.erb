@@ -116,3 +116,27 @@ metatile:
   size: <%= node[:tilequeue][:metatile][:size] %>
   store_metatile_and_originals: <%= node[:tilequeue][:metatile][:store_metatile_and_originals] %>
 <%- end -%>
+<%- if node[:tilequeue][:toiprune][:enabled] -%>
+toi-prune:
+  redshift:
+    database-uri: <%= node[:tilequeue][:toiprune][:redshift][:database_uri] %>
+    days: <%= node[:tilequeue][:toiprune][:redshift][:days] %>
+    max-zoom: <%= node[:tilequeue][:toiprune][:redshift][:max_zoom] %>
+  cutoff:
+    min-requests: <%= node[:tilequeue][:toiprune][:cutoff][:min_requests] %>
+    max-tiles: <%= node[:tilequeue][:toiprune][:cutoff][:max_tiles] %>
+  s3:
+    bucket: <%= node[:tilequeue][:toiprune][:s3][:bucket] %>
+    date-prefix: <%= node[:tilequeue][:toiprune][:s3][:date_prefix] %>
+    path: <%= node[:tilequeue][:toiprune][:s3][:path] %>
+    layer: <%= node[:tilequeue][:toiprune][:s3][:layer] %>
+    format: <%= node[:tilequeue][:toiprune][:s3][:format] %>
+  always-include:
+<%- node[:tilequeue][:toiprune][:always_include].each do |name, data| -%>
+    <%= name %>:
+      <%- layer_data.each do |key, value| -%>
+      <%= key %>: <%= value %>
+      <%- end -%>
+    <%- end -%>
+<%- end -%>
+<%- end -%>
