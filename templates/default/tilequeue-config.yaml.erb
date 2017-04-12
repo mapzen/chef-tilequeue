@@ -131,3 +131,9 @@ toi-prune:
     <%- end -%>
 <%- end -%>
 <%- end -%>
+<%- if node[:tilequeue][:statsd][:enabled] -%>
+statsd:
+  host: <%= node[:tilequeue][:statsd][:host] %>
+  port: <%= node[:tilequeue][:statsd][:port] %>
+  prefix: <%= node[:tilequeue][:statsd][:prefix] %>
+<%- end -%>
