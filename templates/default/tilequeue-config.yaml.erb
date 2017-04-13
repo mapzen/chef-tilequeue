@@ -125,7 +125,7 @@ toi-prune:
   always-include:
 <%- node[:tilequeue][:toiprune][:always_include].each do |name, data| -%>
     <%= name %>:
-      <%- layer_data.each do |key, value| -%>
+      <%- data.each do |key, value| -%>
       <%= key %>: <%= value %>
       <%- end -%>
 <%- end -%>
