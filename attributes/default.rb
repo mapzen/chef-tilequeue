@@ -37,6 +37,7 @@ default[:tilequeue][:pip_requirements] = %w(
   simplejson==3.6.4
   six==1.10.0
   StreetNames==0.1.5
+  statsd==3.2.1
   ujson==1.35
   Werkzeug==0.9.6
   wsgiref==0.1.2
@@ -138,3 +139,5 @@ default[:tilequeue][:metatile][:size]                         = 1
 default[:tilequeue][:metatile][:store_metatile_and_originals] = false
 
 default[:tilequeue][:toiprune][:enabled]                      = false
+
+default[:tilequeue][:statsd][:enabled]                        = false
