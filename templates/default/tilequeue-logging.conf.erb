@@ -1,5 +1,5 @@
 [loggers]
-keys=root,process,seed,intersect,drain,enqueue_tiles_of_interest,wof_process_neighbourhoods
+keys=root,process,seed,intersect,drain,prune_tiles_of_interest,enqueue_tiles_of_interest,wof_process_neighbourhoods
 
 [handlers]
 keys=consoleHandler,consoleTimestampHandler
@@ -10,6 +10,12 @@ keys=simpleFormatter,timestampFormatter
 [logger_root]
 level=WARNING
 handlers=consoleHandler
+
+[logger_prune_tiles_of_interest]
+level=INFO
+handlers=consoleTimestampHandler
+qualName=prune_tiles_of_interest
+propagate=0
 
 [logger_enqueue_tiles_of_interest]
 level=INFO
