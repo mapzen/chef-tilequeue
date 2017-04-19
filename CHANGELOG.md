@@ -3,8 +3,9 @@ CHANGELOG
 
 0.11.0
 ------
-* Peg appdirs to 1.4.3
-* Add support for the tilequeue pruning command.
+* Peg appdirs to 1.4.3. (See [#34](https://github.com/tilezen/chef-tilequeue/pull/34))
+* Add support for the tilequeue pruning command. (See [#35](https://github.com/tilezen/chef-tilequeue/pull/35), [#37](https://github.com/tilezen/chef-tilequeue/pull/37), [#38](https://github.com/tilezen/chef-tilequeue/pull/38), and [#39](https://github.com/tilezen/chef-tilequeue/pull/39))
+* Add support for statsd in tilequeue command.py. (See [#36](https://github.com/tilezen/chef-tilequeue/pull/36))
 
 0.10.0
 ------
