@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.11.0
+------
+* Peg appdirs to 1.4.3
+* Add support for the tilequeue pruning command.
+
 0.10.0
 ------
 * Remove configuration of layers to format. (See https://github.com/tilezen/chef-tilequeue/issues/31)
