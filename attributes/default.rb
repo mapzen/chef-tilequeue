@@ -141,3 +141,8 @@ default[:tilequeue][:metatile][:store_metatile_and_originals] = false
 default[:tilequeue][:toiprune][:enabled]                      = false
 
 default[:tilequeue][:statsd][:enabled]                        = false
+
+default[:tilequeue][:toistore][:type]                         = 's3'
+default[:tilequeue][:toistore][:s3][:bucket]                  = ''
+default[:tilequeue][:toistore][:s3][:key]                     = ''
+default[:tilequeue][:toistore][:file][:name]                  = ''

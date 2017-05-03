@@ -136,3 +136,10 @@ statsd:
   port: <%= node[:tilequeue][:statsd][:port] %>
   prefix: <%= node[:tilequeue][:statsd][:prefix] %>
 <%- end -%>
+toi-store:
+  type: <%= node[:tilequeue][:toistore][:type] %>
+  s3:
+    bucket: <%= node[:tilequeue][:toistore][:s3][:bucket] %>
+    key: <%= node[:tilequeue][:toistore][:s3][:key] %>
+  file:
+    name: <%= node[:tilequeue][:toistore][:file][:name] %>
