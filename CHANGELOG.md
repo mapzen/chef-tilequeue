@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+0.12.0
+------
+* Add chef support for toi-store configuration
+* Remove store_metatile_and_originals configuration
+
 0.11.0
 ------
 * Peg appdirs to 1.4.3. (See [#34](https://github.com/tilezen/chef-tilequeue/pull/34))
