@@ -76,6 +76,10 @@ process:
       <%- end -%>
   <%- end -%>
 <%- end -%>
+  yaml:
+    type: parse
+    parse:
+      path: <%= node[:tilequeue][:vector_datasource][:path] %>/yaml
 logging:
   config: <%= node[:tilequeue][:logging][:config] %>
 redis:
