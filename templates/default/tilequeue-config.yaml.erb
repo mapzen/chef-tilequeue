@@ -112,7 +112,7 @@ metatile:
 <%- end -%>
 <%- if node[:tilequeue][:toiprune][:enabled] -%>
 toi-prune:
-  redshift:
+  tile-history:
     database-uri: <%= node[:tilequeue][:toiprune][:redshift][:database_uri] %>
     days: <%= node[:tilequeue][:toiprune][:redshift][:days] %>
     max-zoom: <%= node[:tilequeue][:toiprune][:redshift][:max_zoom] %>
