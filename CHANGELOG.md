@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+0.12.1
+------
+
+* Change key from `redshift` to `tile-history` to match the code.
+* Configure yaml parsing for python output functions
+
 0.12.0
 ------
 * Add chef support for toi-store configuration
