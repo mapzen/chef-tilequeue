@@ -60,8 +60,8 @@ default[:tilequeue][:user][:enabled]                            = true
 
 default[:tilequeue][:queue] = [
   {
-    :type => 'sqs',
-    :name => '',
+    type: 'sqs',
+    name: ''
   }
 ]
 default[:tilequeue][:queue_mapping][:type] = ''
