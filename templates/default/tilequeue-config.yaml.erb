@@ -1,12 +1,31 @@
 queue:
-  type: <%= node[:tilequeue][:queue][:type] %>
-  name: <%= node[:tilequeue][:queue][:name] %>
-  <%- if node[:tilequeue][:queue][:zoom_queue_map] -%>
-  zoom-queue-map:
-    <%- node[:tilequeue][:queue][:zoom_queue_map].each do |zoom_range, queue_name| -%>
-    <%= zoom_range %>: <%= queue_name %>
-    <%- end -%>
-  <%- end -%>
+<%- for queue_cfg in node[:tilequeue][:queue] -%>
+  - type: <%= queue_cfg[:type] %>
+    name: <%= queue_cfg[:name] %>
+<%- end -%>
+queue-mapping:
+  type: <%= node[:tilequeue][:queue_mapping][:type] %>
+<%- if node[:tilequeue][:queue_mapping][:type] == 'multiple' -%>
+  multiple:
+<%- for qm_cfg in node[:tilequeue][:queue_mapping][:multiple] -%>
+    - queue-name: <%= qm_cfg[:queue_name] %>
+<%- if qm_cfg[:start_zoom] -%>
+      start-zoom: <%= qm_cfg[:start_zoom] %>
+<%- end %>
+<%- if qm_cfg[:end_zoom] -%>
+      end-zoom: <%= qm_cfg[:end_zoom] %>
+<%- end %>
+<%- if qm_cfg[:group_by_zoom] -%>
+      group-by-zoom: <%= qm_cfg[:group_by_zoom] %>
+<%- end %>
+<%- end %>
+<%- end %>
+message-marshall:
+  type: <%= node[:tilequeue][:message_marshall][:type] %>
+in-flight:
+  type: <%= node[:tilequeue][:in_flight][:type] %>
+message-tracker:
+  type: <%= node[:tilequeue][:message_tracker][:type] %>
 store:
   type: <%= node[:tilequeue][:store][:type] %>
   name: <%= node[:tilequeue][:store][:name] %>

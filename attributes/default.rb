@@ -57,13 +57,18 @@ default[:tilequeue][:user][:create_group]                       = true
 default[:tilequeue][:user][:enabled]                            = true
 
 # for yaml configuration file
-default[:tilequeue][:queue][:type]                              = 'sqs'
-default[:tilequeue][:queue][:name]                              = ''
-# for multisqs eg:
-#  "0-10" => "sqs-queue-name-1"
-# "11-20" => "sqs-queue-name-2"
-# zooms are inclusive
-default[:tilequeue][:queue][:zoom_queue_map]                    = nil
+
+default[:tilequeue][:queue] = [
+  {
+    type: 'sqs',
+    name: ''
+  }
+]
+default[:tilequeue][:queue_mapping][:type] = ''
+default[:tilequeue][:message_marshall][:type] = ''
+default[:tilequeue][:in_flight][:type] = ''
+default[:tilequeue][:message_tracker][:type] = ''
+
 default[:tilequeue][:store][:type]                              = 's3'
 default[:tilequeue][:store][:name]                              = ''
 default[:tilequeue][:store][:path]                              = ''
