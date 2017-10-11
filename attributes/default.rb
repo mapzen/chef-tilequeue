@@ -110,10 +110,9 @@ default[:tilequeue][:vector_datasource][:repository]            = 'https://githu
 default[:tilequeue][:vector_datasource][:path]                  = "#{node[:tilequeue][:cfg_path]}/vector-datasource"
 default[:tilequeue][:revision][:vector_datasource]              = 'master'
 
-default[:tilequeue][:intersect][:redis][:host]                  = 'localhost'
-default[:tilequeue][:intersect][:redis][:port]                  = 6379
-default[:tilequeue][:intersect][:redis][:db]                    = 0
-default[:tilequeue][:intersect][:redis][:cache_set_key]         = 'tilequeue.tiles-of-interest'
+default[:tilequeue][:redis][:host]                              = 'localhost'
+default[:tilequeue][:redis][:port]                              = 6379
+default[:tilequeue][:redis][:db]                                = 0
 
 default[:tilequeue][:postgresql][:host]                         = 'localhost'
 default[:tilequeue][:postgresql][:dbnames]                      = ['osm']

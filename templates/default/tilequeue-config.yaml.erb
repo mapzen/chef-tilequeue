@@ -62,9 +62,6 @@ tiles:
       bboxes: <%= node[:tilequeue][:tiles][:custom][:bboxes] %>
     <%- end -%>
     should-add-to-tiles-of-interest: <%= node[:tilequeue][:tiles][:should_add_to_tiles_of_interest] %>
-  intersect:
-    expired-location: <%= node[:tilequeue][:tiles][:expired_location] %>
-    parent-zoom-until: <%= node[:tilequeue][:tiles][:parent_zoom_until] %>
 process:
   n-simultaneous-query-sets: <%= node[:tilequeue][:process][:n_simultaneous_query_sets] %>
   n-simultaneous-s3-storage: <%= node[:tilequeue][:process][:n_simultaneous_s3_storage] %>
@@ -102,10 +99,9 @@ process:
 logging:
   config: <%= node[:tilequeue][:logging][:config] %>
 redis:
-  host: <%= node[:tilequeue][:intersect][:redis][:host] %>
-  port: <%= node[:tilequeue][:intersect][:redis][:port] %>
-  db: <%= node[:tilequeue][:intersect][:redis][:db] %>
-  cache-set-key: <%= node[:tilequeue][:intersect][:redis][:cache_set_key] %>
+  host: <%= node[:tilequeue][:redis][:host] %>
+  port: <%= node[:tilequeue][:redis][:port] %>
+  db: <%= node[:tilequeue][:redis][:db] %>
 postgresql:
   host: <%= node[:tilequeue][:postgresql][:host] %>
   port: 5432
