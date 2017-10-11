@@ -150,3 +150,13 @@ default[:tilequeue][:toistore][:type]                         = 's3'
 default[:tilequeue][:toistore][:s3][:bucket]                  = ''
 default[:tilequeue][:toistore][:s3][:key]                     = ''
 default[:tilequeue][:toistore][:file][:name]                  = ''
+
+default[:tilequeue][:rawr][:group_zoom]                       = 10
+default[:tilequeue][:rawr][:queue]                            = ''
+default[:tilequeue][:rawr][:postgresql][:host]                = ''
+default[:tilequeue][:rawr][:postgresql][:dbname]              = ''
+default[:tilequeue][:rawr][:postgresql][:user]                = ''
+default[:tilequeue][:rawr][:postgresql][:password]            = ''
+default[:tilequeue][:rawr][:sink][:bucket]                    = ''
+default[:tilequeue][:rawr][:sink][:prefix]                    = ''
+default[:tilequeue][:rawr][:sink][:suffix]                    = '.gz'

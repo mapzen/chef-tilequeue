@@ -165,3 +165,17 @@ toi-store:
     key: <%= node[:tilequeue][:toistore][:s3][:key] %>
   file:
     name: <%= node[:tilequeue][:toistore][:file][:name] %>
+rawr:
+  # this is the parent zoom level that coordinates are expected to be grouped under
+  group-zoom: <%= node[:tilequeue][:rawr][:group_zoom] %>
+  queue: <%= node[:tilequeue][:rawr][:queue] %>
+  postgresql:
+    host: <%= node[:tilequeue][:rawr][:postgesql][:host] %>
+    port: 5432
+    dbname: <%= node[:tilequeue][:rawr][:postgesql][:dbname] %>
+    user: <%= node[:tilequeue][:rawr][:postgesql][:user] %>
+    password: <%= node[:tilequeue][:rawr][:postgesql][:password] %>
+  sink:
+    bucket: <%= node[:tilequeue][:rawr][:sink][:bucket] %>
+    prefix: <%= node[:tilequeue][:rawr][:sink][:prefix] %>
+    suffix: <%= node[:tilequeue][:rawr][:sink][:suffix] %>
