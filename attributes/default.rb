@@ -46,9 +46,9 @@ default[:tilequeue][:pip_requirements] = %w(
 )
 
 default[:tilequeue][:pip_requirements] += [
-  "git+https://github.com/mapzen/mapbox-vector-tile@#{node[:tilequeue][:revision][:mapbox_vector_tile]}#egg=mapbox-vector-tile",
-  "git+https://github.com/mapzen/raw_tiles@#{node[:tilequeue][:revision][:raw_tiles]}#egg=raw_tiles",
-  "git+https://github.com/mapzen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"
+  "git+https://github.com/tilezen/mapbox-vector-tile@#{node[:tilequeue][:revision][:mapbox_vector_tile]}#egg=mapbox-vector-tile",
+  "git+https://github.com/tilezen/raw_tiles@#{node[:tilequeue][:revision][:raw_tiles]}#egg=raw_tiles",
+  "git+https://github.com/tilezen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"
 ]
 
 # tilequeue user to create
