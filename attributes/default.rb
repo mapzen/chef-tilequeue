@@ -11,7 +11,7 @@ default[:tilequeue][:logging_file]                              = 'logging.conf'
 default[:tilequeue][:install_method]                            = 'pip_requirements'
 default[:tilequeue][:pip_requirements_location]                 = "#{node[:tilequeue][:cfg_path]}/pip-requirements.txt"
 
-default[:tilequeue][:revision][:tilestache] = 'integration-1'
+default[:tilequeue][:revision][:raw_tiles] = 'master'
 default[:tilequeue][:revision][:mapbox_vector_tile] = 'master'
 default[:tilequeue][:revision][:tilequeue] = 'master'
 
@@ -47,6 +47,7 @@ default[:tilequeue][:pip_requirements] = %w(
 
 default[:tilequeue][:pip_requirements] += [
   "git+https://github.com/mapzen/mapbox-vector-tile@#{node[:tilequeue][:revision][:mapbox_vector_tile]}#egg=mapbox-vector-tile",
+  "git+https://github.com/mapzen/raw_tiles@#{node[:tilequeue][:revision][:raw_tiles]}#egg=raw_tiles",
   "git+https://github.com/mapzen/tilequeue@#{node[:tilequeue][:revision][:tilequeue]}#egg=tilequeue"
 ]
 
