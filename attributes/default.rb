@@ -110,10 +110,9 @@ default[:tilequeue][:vector_datasource][:repository]            = 'https://githu
 default[:tilequeue][:vector_datasource][:path]                  = "#{node[:tilequeue][:cfg_path]}/vector-datasource"
 default[:tilequeue][:revision][:vector_datasource]              = 'master'
 
-default[:tilequeue][:intersect][:redis][:host]                  = 'localhost'
-default[:tilequeue][:intersect][:redis][:port]                  = 6379
-default[:tilequeue][:intersect][:redis][:db]                    = 0
-default[:tilequeue][:intersect][:redis][:cache_set_key]         = 'tilequeue.tiles-of-interest'
+default[:tilequeue][:redis][:host]                              = 'localhost'
+default[:tilequeue][:redis][:port]                              = 6379
+default[:tilequeue][:redis][:db]                                = 0
 
 default[:tilequeue][:postgresql][:host]                         = 'localhost'
 default[:tilequeue][:postgresql][:dbnames]                      = ['osm']
@@ -139,14 +138,24 @@ default[:tilequeue][:wof][:postgresql][:password]               = node[:tilequeu
 default[:tilequeue][:force_restart][:script]                    = '/usr/local/bin/tilequeue-process-force-restart.sh'
 default[:tilequeue][:force_restart][:setup_ran_path]            = '/etc/tilequeue/setup-ran'
 
-default[:tilequeue][:metatile][:enabled]                      = false
-default[:tilequeue][:metatile][:size]                         = 1
+default[:tilequeue][:metatile][:enabled]                        = false
+default[:tilequeue][:metatile][:size]                           = 1
 
-default[:tilequeue][:toiprune][:enabled]                      = false
+default[:tilequeue][:toiprune][:enabled]                        = false
 
-default[:tilequeue][:statsd][:enabled]                        = false
+default[:tilequeue][:statsd][:enabled]                          = false
 
-default[:tilequeue][:toistore][:type]                         = 's3'
-default[:tilequeue][:toistore][:s3][:bucket]                  = ''
-default[:tilequeue][:toistore][:s3][:key]                     = ''
-default[:tilequeue][:toistore][:file][:name]                  = ''
+default[:tilequeue][:toistore][:type]                           = 's3'
+default[:tilequeue][:toistore][:s3][:bucket]                    = ''
+default[:tilequeue][:toistore][:s3][:key]                       = ''
+default[:tilequeue][:toistore][:file][:name]                    = ''
+
+default[:tilequeue][:rawr][:group_zoom]                         = 10
+default[:tilequeue][:rawr][:queue]                              = ''
+default[:tilequeue][:rawr][:postgresql][:host]                  = ''
+default[:tilequeue][:rawr][:postgresql][:dbname]                = ''
+default[:tilequeue][:rawr][:postgresql][:user]                  = ''
+default[:tilequeue][:rawr][:postgresql][:password]              = ''
+default[:tilequeue][:rawr][:sink][:bucket]                      = ''
+default[:tilequeue][:rawr][:sink][:prefix]                      = ''
+default[:tilequeue][:rawr][:sink][:suffix]                      = '.zip'
