@@ -166,11 +166,11 @@ rawr:
   group-zoom: <%= node[:tilequeue][:rawr][:group_zoom] %>
   queue: <%= node[:tilequeue][:rawr][:queue] %>
   postgresql:
-    host: <%= node[:tilequeue][:rawr][:postgesql][:host] %>
+    host: <%= node[:tilequeue][:rawr][:postgresql][:host] %>
     port: 5432
-    dbname: <%= node[:tilequeue][:rawr][:postgesql][:dbname] %>
-    user: <%= node[:tilequeue][:rawr][:postgesql][:user] %>
-    password: <%= node[:tilequeue][:rawr][:postgesql][:password] %>
+    dbname: <%= node[:tilequeue][:rawr][:postgresql][:dbname] %>
+    user: <%= node[:tilequeue][:rawr][:postgresql][:user] %>
+    password: <%= node[:tilequeue][:rawr][:postgresql][:password] %>
   sink:
     bucket: <%= node[:tilequeue][:rawr][:sink][:bucket] %>
     prefix: <%= node[:tilequeue][:rawr][:sink][:prefix] %>
