@@ -164,7 +164,9 @@ toi-store:
 rawr:
   # this is the parent zoom level that coordinates are expected to be grouped under
   group-zoom: <%= node[:tilequeue][:rawr][:group_zoom] %>
-  queue: <%= node[:tilequeue][:rawr][:queue] %>
+  queue:
+    name: <%= node[:tilequeue][:rawr][:queue][:name] %>
+    region: <%= node[:tilequeue][:rawr][:queue][:region] %>
   postgresql:
     host: <%= node[:tilequeue][:rawr][:postgresql][:host] %>
     port: 5432
@@ -173,5 +175,6 @@ rawr:
     password: <%= node[:tilequeue][:rawr][:postgresql][:password] %>
   sink:
     bucket: <%= node[:tilequeue][:rawr][:sink][:bucket] %>
+    region: <%= node[:tilequeue][:rawr][:sink][:region] %>
     prefix: <%= node[:tilequeue][:rawr][:sink][:prefix] %>
     suffix: <%= node[:tilequeue][:rawr][:sink][:suffix] %>
