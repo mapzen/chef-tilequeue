@@ -153,6 +153,7 @@ default[:tilequeue][:toistore][:file][:name]                    = ''
 
 default[:tilequeue][:rawr][:group_zoom]                         = 10
 default[:tilequeue][:rawr][:queue][:name]                       = ''
+default[:tilequeue][:rawr][:queue][:wait_seconds]               = 20
 default[:tilequeue][:rawr][:queue][:region]                     = ''
 default[:tilequeue][:rawr][:postgresql][:host]                  = ''
 default[:tilequeue][:rawr][:postgresql][:dbname]                = ''

@@ -166,6 +166,7 @@ rawr:
   group-zoom: <%= node[:tilequeue][:rawr][:group_zoom] %>
   queue:
     name: <%= node[:tilequeue][:rawr][:queue][:name] %>
+    wait-seconds: <%= node[:tilequeue][:rawr][:queue][:wait_seconds] %>
     region: <%= node[:tilequeue][:rawr][:queue][:region] %>
   postgresql:
     host: <%= node[:tilequeue][:rawr][:postgresql][:host] %>
