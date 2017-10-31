@@ -179,3 +179,17 @@ rawr:
     region: <%= node[:tilequeue][:rawr][:sink][:region] %>
     prefix: <%= node[:tilequeue][:rawr][:sink][:prefix] %>
     suffix: <%= node[:tilequeue][:rawr][:sink][:suffix] %>
+  source:
+    type: <%= node[:tilequeue][:rawr][:source][:type] %>
+    table-sources:
+      planet_osm_line: &osm { name: osm, value: openstreetmap.org }
+      planet_osm_point: *osm
+      planet_osm_polygon: *osm
+      planet_osm_ways: *osm
+      planet_osm_rels: *osm
+    s3:
+      bucket: <%= node[:tilequeue][:rawr][:source][:bucket] %>
+      region: <%= node[:tilequeue][:rawr][:source][:region] %>
+      prefix: <%= node[:tilequeue][:rawr][:source][:prefix] %>
+      suffix: <%= node[:tilequeue][:rawr][:source][:suffix] %>
+use-rawr-tiles: <%= node[:tilequeue][:rawr][:use_rawr_tiles] %>

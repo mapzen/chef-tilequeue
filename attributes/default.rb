@@ -163,3 +163,10 @@ default[:tilequeue][:rawr][:sink][:bucket]                      = ''
 default[:tilequeue][:rawr][:sink][:region]                      = ''
 default[:tilequeue][:rawr][:sink][:prefix]                      = ''
 default[:tilequeue][:rawr][:sink][:suffix]                      = '.zip'
+# source type can be "store", "generator", or "s3"
+default[:tilequeue][:rawr][:source][:type]                      = 's3'
+default[:tilequeue][:rawr][:source][:bucket]                    = ''
+default[:tilequeue][:rawr][:source][:region]                    = ''
+default[:tilequeue][:rawr][:source][:prefix]                    = ''
+default[:tilequeue][:rawr][:source][:suffix]                    = '.zip'
+default[:tilequeue][:rawr][:use_rawr_tiles]                     = true
