@@ -2,6 +2,9 @@ queue:
 <%- for queue_cfg in node[:tilequeue][:queue] -%>
   - type: <%= queue_cfg[:type] %>
     name: <%= queue_cfg[:name] %>
+<%- if queue_cfg['region'] -%>
+    region: <%= queue_cfg[:region] %>
+<%- end -%>
 <%- end -%>
 queue-mapping:
   type: <%= node[:tilequeue][:queue_mapping][:type] %>
