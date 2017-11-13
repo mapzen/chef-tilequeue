@@ -2,8 +2,10 @@ queue:
 <%- for queue_cfg in node[:tilequeue][:queue] -%>
   - type: <%= queue_cfg[:type] %>
     name: <%= queue_cfg[:name] %>
-<%- if queue_cfg['region'] -%>
-    region: <%= queue_cfg[:region] %>
+<%- if queue_cfg[:type] == 'sqs' -%>
+    sqs:
+      region: <%= queue_cfg[:region] %>
+      visibility-extend-seconds: <%= queue_cfg[:visibility_extend_seconds] %>
 <%- end -%>
 <%- end -%>
 queue-mapping:

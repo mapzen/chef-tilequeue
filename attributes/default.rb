@@ -62,7 +62,9 @@ default[:tilequeue][:user][:enabled]                            = true
 default[:tilequeue][:queue] = [
   {
     type: 'sqs',
-    name: ''
+    name: '',
+    region: '',
+    visibility_extend_seconds: 0,
   }
 ]
 default[:tilequeue][:queue_mapping][:type] = ''
