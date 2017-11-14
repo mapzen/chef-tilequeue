@@ -64,13 +64,16 @@ default[:tilequeue][:queue] = [
     type: 'sqs',
     name: '',
     region: '',
-    visibility_extend_seconds: 0,
   }
 ]
 default[:tilequeue][:queue_mapping][:type] = ''
 default[:tilequeue][:message_marshall][:type] = ''
 default[:tilequeue][:in_flight][:type] = ''
 default[:tilequeue][:message_tracker][:type] = ''
+
+default[:tilequeue][:message_visibility][:extend_seconds]       = 1800
+default[:tilequeue][:message_visibility][:max_seconds]          = 43200
+default[:tilequeue][:message_visibility][:timeout_seconds]      = 3600
 
 default[:tilequeue][:store][:type]                              = 's3'
 default[:tilequeue][:store][:name]                              = ''

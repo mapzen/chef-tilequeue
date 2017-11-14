@@ -5,7 +5,6 @@ queue:
 <%- if queue_cfg[:type] == 'sqs' -%>
     sqs:
       region: <%= queue_cfg[:region] %>
-      visibility-extend-seconds: <%= queue_cfg[:visibility_extend_seconds] %>
 <%- end -%>
 <%- end -%>
 queue-mapping:
@@ -31,6 +30,10 @@ in-flight:
   type: <%= node[:tilequeue][:in_flight][:type] %>
 message-tracker:
   type: <%= node[:tilequeue][:message_tracker][:type] %>
+message-visibility:
+  extend-seconds: <%= node[:tilequeue][:message_visibility][:extend_seconds] %>
+  max-seconds: <%= node[:tilequeue][:message_visibility][:max_seconds] %>
+  timeout-seconds: <%= node[:tilequeue][:message_visibility][:timeout_seconds] %>
 store:
   type: <%= node[:tilequeue][:store][:type] %>
   name: <%= node[:tilequeue][:store][:name] %>
