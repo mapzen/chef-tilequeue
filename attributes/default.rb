@@ -175,3 +175,7 @@ default[:tilequeue][:rawr][:source][:region]                    = ''
 default[:tilequeue][:rawr][:source][:prefix]                    = ''
 default[:tilequeue][:rawr][:source][:suffix]                    = '.zip'
 default[:tilequeue][:rawr][:use_rawr_tiles]                     = true
+
+# toi, none, all, all-parents
+# typically set to toi
+default[:tilequeue][:rawr][:intersect][:type]                   = ''
