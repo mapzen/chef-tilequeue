@@ -168,6 +168,7 @@ toi-store:
   s3:
     bucket: <%= node[:tilequeue][:toistore][:s3][:bucket] %>
     key: <%= node[:tilequeue][:toistore][:s3][:key] %>
+    region: <%= node[:tilequeue][:toistore][:s3][:region] %>
   file:
     name: <%= node[:tilequeue][:toistore][:file][:name] %>
 rawr:

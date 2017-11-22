@@ -155,6 +155,7 @@ default[:tilequeue][:statsd][:enabled]                          = false
 default[:tilequeue][:toistore][:type]                           = 's3'
 default[:tilequeue][:toistore][:s3][:bucket]                    = ''
 default[:tilequeue][:toistore][:s3][:key]                       = ''
+default[:tilequeue][:toistore][:s3][:region]                    = ''
 default[:tilequeue][:toistore][:file][:name]                    = ''
 
 default[:tilequeue][:rawr][:group_zoom]                         = 10
