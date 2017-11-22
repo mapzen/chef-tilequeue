@@ -132,6 +132,7 @@ wof:
 <%- if node[:tilequeue][:metatile][:enabled] -%>
 metatile:
   size: <%= node[:tilequeue][:metatile][:size] %>
+  start-zoom: <%= node[:tilequeue][:metatile][:start_zoom] %>
 <%- end -%>
 <%- if node[:tilequeue][:toiprune][:enabled] -%>
 toi-prune:

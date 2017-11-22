@@ -146,6 +146,7 @@ default[:tilequeue][:force_restart][:setup_ran_path]            = '/etc/tilequeu
 
 default[:tilequeue][:metatile][:enabled]                        = false
 default[:tilequeue][:metatile][:size]                           = 1
+default[:tilequeue][:metatile][:start_zoom]                     = 0
 
 default[:tilequeue][:toiprune][:enabled]                        = false
 
