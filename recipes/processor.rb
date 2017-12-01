@@ -12,7 +12,7 @@ include_recipe 'runit::default'
 runit_service 'tilequeue' do
   action          [:enable]
   log             true
-  default_logger  true
+  default_logger  false
   sv_timeout      node[:tilequeue][:runit][:timeout]
 end
 

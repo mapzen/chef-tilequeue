@@ -62,13 +62,18 @@ default[:tilequeue][:user][:enabled]                            = true
 default[:tilequeue][:queue] = [
   {
     type: 'sqs',
-    name: ''
+    name: '',
+    region: '',
   }
 ]
 default[:tilequeue][:queue_mapping][:type] = ''
 default[:tilequeue][:message_marshall][:type] = ''
 default[:tilequeue][:in_flight][:type] = ''
 default[:tilequeue][:message_tracker][:type] = ''
+
+default[:tilequeue][:message_visibility][:extend_seconds]       = 1800
+default[:tilequeue][:message_visibility][:max_seconds]          = 43200
+default[:tilequeue][:message_visibility][:timeout_seconds]      = 3600
 
 default[:tilequeue][:store][:type]                              = 's3'
 default[:tilequeue][:store][:name]                              = ''
@@ -141,6 +146,7 @@ default[:tilequeue][:force_restart][:setup_ran_path]            = '/etc/tilequeu
 
 default[:tilequeue][:metatile][:enabled]                        = false
 default[:tilequeue][:metatile][:size]                           = 1
+default[:tilequeue][:metatile][:start_zoom]                     = 0
 
 default[:tilequeue][:toiprune][:enabled]                        = false
 
@@ -149,14 +155,29 @@ default[:tilequeue][:statsd][:enabled]                          = false
 default[:tilequeue][:toistore][:type]                           = 's3'
 default[:tilequeue][:toistore][:s3][:bucket]                    = ''
 default[:tilequeue][:toistore][:s3][:key]                       = ''
+default[:tilequeue][:toistore][:s3][:region]                    = ''
 default[:tilequeue][:toistore][:file][:name]                    = ''
 
 default[:tilequeue][:rawr][:group_zoom]                         = 10
-default[:tilequeue][:rawr][:queue]                              = ''
+default[:tilequeue][:rawr][:queue][:name]                       = ''
+default[:tilequeue][:rawr][:queue][:wait_seconds]               = 20
+default[:tilequeue][:rawr][:queue][:region]                     = ''
 default[:tilequeue][:rawr][:postgresql][:host]                  = ''
 default[:tilequeue][:rawr][:postgresql][:dbname]                = ''
 default[:tilequeue][:rawr][:postgresql][:user]                  = ''
 default[:tilequeue][:rawr][:postgresql][:password]              = ''
 default[:tilequeue][:rawr][:sink][:bucket]                      = ''
+default[:tilequeue][:rawr][:sink][:region]                      = ''
 default[:tilequeue][:rawr][:sink][:prefix]                      = ''
 default[:tilequeue][:rawr][:sink][:suffix]                      = '.zip'
+# source type can be "store", "generator", or "s3"
+default[:tilequeue][:rawr][:source][:type]                      = 's3'
+default[:tilequeue][:rawr][:source][:bucket]                    = ''
+default[:tilequeue][:rawr][:source][:region]                    = ''
+default[:tilequeue][:rawr][:source][:prefix]                    = ''
+default[:tilequeue][:rawr][:source][:suffix]                    = '.zip'
+default[:tilequeue][:rawr][:use_rawr_tiles]                     = true
+
+# toi, none, all, all-parents
+# typically set to toi
+default[:tilequeue][:rawr][:intersect][:type]                   = ''

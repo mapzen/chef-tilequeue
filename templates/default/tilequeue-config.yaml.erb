@@ -2,6 +2,10 @@ queue:
 <%- for queue_cfg in node[:tilequeue][:queue] -%>
   - type: <%= queue_cfg[:type] %>
     name: <%= queue_cfg[:name] %>
+<%- if queue_cfg[:type] == 'sqs' -%>
+    sqs:
+      region: <%= queue_cfg[:region] %>
+<%- end -%>
 <%- end -%>
 queue-mapping:
   type: <%= node[:tilequeue][:queue_mapping][:type] %>
@@ -26,6 +30,10 @@ in-flight:
   type: <%= node[:tilequeue][:in_flight][:type] %>
 message-tracker:
   type: <%= node[:tilequeue][:message_tracker][:type] %>
+message-visibility:
+  extend-seconds: <%= node[:tilequeue][:message_visibility][:extend_seconds] %>
+  max-seconds: <%= node[:tilequeue][:message_visibility][:max_seconds] %>
+  timeout-seconds: <%= node[:tilequeue][:message_visibility][:timeout_seconds] %>
 store:
   type: <%= node[:tilequeue][:store][:type] %>
   name: <%= node[:tilequeue][:store][:name] %>
@@ -124,6 +132,7 @@ wof:
 <%- if node[:tilequeue][:metatile][:enabled] -%>
 metatile:
   size: <%= node[:tilequeue][:metatile][:size] %>
+  start-zoom: <%= node[:tilequeue][:metatile][:start_zoom] %>
 <%- end -%>
 <%- if node[:tilequeue][:toiprune][:enabled] -%>
 toi-prune:
@@ -159,12 +168,16 @@ toi-store:
   s3:
     bucket: <%= node[:tilequeue][:toistore][:s3][:bucket] %>
     key: <%= node[:tilequeue][:toistore][:s3][:key] %>
+    region: <%= node[:tilequeue][:toistore][:s3][:region] %>
   file:
     name: <%= node[:tilequeue][:toistore][:file][:name] %>
 rawr:
   # this is the parent zoom level that coordinates are expected to be grouped under
   group-zoom: <%= node[:tilequeue][:rawr][:group_zoom] %>
-  queue: <%= node[:tilequeue][:rawr][:queue] %>
+  queue:
+    name: <%= node[:tilequeue][:rawr][:queue][:name] %>
+    wait-seconds: <%= node[:tilequeue][:rawr][:queue][:wait_seconds] %>
+    region: <%= node[:tilequeue][:rawr][:queue][:region] %>
   postgresql:
     host: <%= node[:tilequeue][:rawr][:postgresql][:host] %>
     port: 5432
@@ -173,5 +186,57 @@ rawr:
     password: <%= node[:tilequeue][:rawr][:postgresql][:password] %>
   sink:
     bucket: <%= node[:tilequeue][:rawr][:sink][:bucket] %>
+    region: <%= node[:tilequeue][:rawr][:sink][:region] %>
     prefix: <%= node[:tilequeue][:rawr][:sink][:prefix] %>
     suffix: <%= node[:tilequeue][:rawr][:sink][:suffix] %>
+  source:
+    type: <%= node[:tilequeue][:rawr][:source][:type] %>
+    table-sources:
+      planet_osm_line: &osm { name: osm, value: openstreetmap.org }
+      planet_osm_point: *osm
+      planet_osm_polygon: *osm
+      planet_osm_ways: *osm
+      planet_osm_rels: *osm
+      wof_neighbourhood: { name: wof, value: whosonfirst.mapzen.com }
+      water_polygons: &osmdata { name: shp, value: openstreetmapdata.com }
+      land_polygons: *osmdata
+      ne_10m_urban_areas: { name: ne, value: naturalearthdata.com }
+    s3:
+      bucket: <%= node[:tilequeue][:rawr][:source][:bucket] %>
+      region: <%= node[:tilequeue][:rawr][:source][:region] %>
+      prefix: <%= node[:tilequeue][:rawr][:source][:prefix] %>
+      suffix: <%= node[:tilequeue][:rawr][:source][:suffix] %>
+  # when a feature's shape is of the type given in the key and the feature
+  # appears in the listed layers, then generate a label centroid. multi*
+  # geometries are considered the same as single ones for the purposes of key
+  # lookup.
+  label-placement-layers:
+    point: ['earth', 'water']
+    polygon: ['buildings', 'earth', 'landuse', 'water']
+    linestring: ['earth', 'landuse', 'water']
+  # indexes to generate on the RAWR tile. features are looked up only if they
+  # appear in an index, so this list must be exhaustive. all OSM-based features
+  # are handled by a single index of {type: osm}. other indexes are provided on
+  # single table/layer combinations with the {type: simple}, providing the
+  # names of both the table and layer. it's also possible to provide start_zoom
+  # and end_zoom parameters which control when the data is visible. note that
+  # the start_zoom is inclusive (and optional; defaults to 0) and the end_zoom
+  # is exclusive (also optional; defaults to infinity).
+  indexes:
+    - type: osm
+    - type: simple
+      table: wof_neighbourhood
+      layer: places
+    - type: simple
+      table: water_polygons
+      layer: water
+    - type: simple
+      table: land_polygons
+      layer: earth
+    - type: simple
+      table: ne_10m_urban_areas
+      layer: landuse
+      end_zoom: 10
+  intersect:
+    type: <%= node[:tilequeue][:rawr][:intersect][:type] %>
+use-rawr-tiles: <%= node[:tilequeue][:rawr][:use_rawr_tiles] %>
